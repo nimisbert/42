@@ -1,5 +1,5 @@
 .PHONY : clean
-.INTERMEDIATE : cmplx.o complex.o mandelbrot.o svgReaderUT.o 
+.INTERMEDIATE : spiegelUT.o spiegel3.o spiegel4.o
 
 VPATH =  src inc usr /mingw64/lib /mingw64/include
 

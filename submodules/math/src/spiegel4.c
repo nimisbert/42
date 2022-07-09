@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <math.h>
 #include <spiegel4.h>
 
@@ -55,4 +56,92 @@ double regularPolygonArea(double b, unsigned int n)
 double regularPolygonPerimeter(double b, unsigned int n)
 {
     return b*n;
+}
+
+double circleArea(double r)
+{
+    return M_PI*r*r;
+}
+
+double circlePerimeter(double r)
+{
+    return 2*M_PI*r;
+}
+
+double sectorArea(double r, double theta)
+{
+    return 0.5*r*r*theta;
+}
+
+double sectorArc(double r, double theta)
+{
+    return r*theta;
+}
+
+double circleRadiusInscribedInTriangle(double a, double b, double c)
+{
+    double s = 0.5*(a+b+c);
+    return sqrt(s*(s-a)*(s-b)*(s-c))/s;
+}
+double circleRadiusCircumscribingTriangle(double a, double b, double c)
+{
+    double s = 0.5*(a+b+c);
+    return a*b*c/(4*sqrt(s*(s-a)*(s-b)*(s-c)));
+}
+
+double regularPolygonAreaInscribedInCircle(double r, unsigned int n)
+{
+    return 0.5*n*r*r*sin(2*M_PI/n);
+}
+
+double regularPolygonPerimeterInscibedInCircle(double r, unsigned int n)
+{
+    return 2*n*r*sin(M_PI/n);
+}
+
+double regularPolygonAreaCircumscribingCircle(double r, unsigned int n)
+{
+    return n*r*r*tan(M_PI/n);
+}
+
+double regularPolygonPerimeterCircumscribingCircle(double r, unsigned int n)
+{
+    return 2*n*r*tan(M_PI/n);
+}
+
+double segmentOuterAreaOfCircle(double r, double theta)
+{
+    return 0.5*r*r*(theta-sin(theta));
+}
+
+double ellipseArea(double a, double b)
+{
+    return M_PI*a*b;
+}
+
+double ellipsePerimeterRawApproximation(double a, double b)
+{
+    return 2*M_PI*sqrt(0.5*(pow(a,2) + pow(b,2)));
+}
+
+double ellipsePerimeterIntegralApproximation(double a, double b, unsigned int nstep)
+{
+    double f(double theta)
+    {
+        double k = sqrt(a*a - b*b)/a;
+        return sqrt(1- k*k*sin(theta)*sin(theta));
+    }
+    return 4*a*integralComposite(0,M_PI/2,f,nstep);
+}
+
+double integralComposite(double a, double b, fptr f, unsigned int n)
+{
+    double sum = 0;
+    for(unsigned int k = 1; k < n; k++)
+    {
+        sum += f(a + k*(((double)(b-a))/n));
+    }
+    sum += f(a)/n + f(b)/n;
+    sum *= (double)(b-a)/n;
+    return sum;
 }

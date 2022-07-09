@@ -104,4 +104,28 @@ double regularPolygonArea(double b, unsigned int n);
  */
 double regularPolygonPerimeter(double b, unsigned int n);
 
+double circleArea(double r); //
+double circlePerimeter(double r); //
+
+double sectorArea(double r, double theta); //
+double sectorArc(double r, double theta); //
+
+double circleRadiusInscribedInTriangle(double a, double b, double c); //
+double circleRadiusCircumscribingTriangle(double a, double b, double c); //
+
+double regularPolygonAreaInscribedInCircle(double r, unsigned int n); //
+double regularPolygonPerimeterInscibedInCircle(double r, unsigned int n); //
+
+double regularPolygonAreaCircumscribingCircle(double r, unsigned int n);
+double regularPolygonPerimeterCircumscribingCircle(double r, unsigned int n);
+
+double segmentOuterAreaOfCircle(double r, double theta);
+
+//a major, b minor
+double ellipseArea(double a, double b);
+double ellipsePerimeterRawApproximation(double a, double b);
+double ellipsePerimeterIntegralApproximation(double a, double b, unsigned int nstep);
+
+typedef double (*fptr) (double x); // f(x)
+double integralComposite(double a, double b, fptr f, unsigned int n);
 #endif
