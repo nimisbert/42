@@ -2,7 +2,7 @@
 
 Repository for code exploration
 TODO : 
- 1. **Working on making a library out of Spiegel Handbook math formulas**
+ 1. **<span style="color:blue">Working on making a library out of Spiegel Handbook math formulas</span>**
  2. Ethernet IP in VHDL
  3. Displaying fourier series with SDL (like the 3Blue1Brown video)
  4. Small bass tuner using portAudio
@@ -10,8 +10,8 @@ TODO :
  6. Drawing bot based on the fourier series
  7. Finish wifibot
 
-##Directory structure 
+## Directory structure 
 
 - submodules
- - math : C and C++ codes on math related topics
- - hdl : TODO
+  - math : C and C++ codes on math related topics
+  - hdl : TODO
