@@ -132,6 +132,7 @@ double parabolaArcLength(double a, double b);
 double rectangularParallelepipedVolume(double a, double b, double c);
 double rectangularParallelepipedSurfaceArea(double a, double b, double c);
 
+//to do abstraction
 double parallelepipedVolumeABCT(double a, double b, double c, double theta);
 double parallelepipedVolumeAh(double A, double h);
 
@@ -140,6 +141,35 @@ double sphereSurfaceArea(double r);
 
 double cylinderVolume(double r, double h);
 double cylinderLateralSurfaceArea(double r, double h);
+
+double slantCylinderVolumeRL(double r, double l);
+double slantCylinderVolumeRHT(double r, double h, double theta);
+double slantCylinderLateralSurfaceAreaRL(double r, double l);
+double slantCylinderLateralSurfaceAreaRHT(double r, double h, double theta);
+
+double slantTubeVolumeAL(double A, double l);
+double slantTubeVolumeAHT(double A, double h, double theta);
+double slantTubeLateralSurfaceAreaPL(double p, double l);
+double slantTubeLateralSurfaceAreaPHT(double p, double h, double theta);
+
+double coneVolume(double r, double h);
+double coneLateralSurfaceArea(double r, double l);
+
+double pyramidVolume(double A, double h);
+
+double sphericalCapVolume(double r, double h);
+double sphericalCapSurfaceArea(double r, double h);
+
+double frustrumVolume(double a, double b, double h);
+double frustrumLateralSurfaceArea(double a, double b, double h);
+
+double sphericalTriangleArea(double A, double B, double C, double r);
+
+double torusVolume(double a, double b);
+double torusSurfaceArea(double a, double b);
+
+double ellipsoidVolume(double a, double b, double c);
+double parapoloidVolume(double a, double b);
 
 typedef double (*fptr) (double x); // f(x)
 double integralComposite(double a, double b, fptr f, unsigned int n);

@@ -56,5 +56,25 @@ int main(int argc, char* argv[])
     printf("Sphere surface area r = %lf : SA = %lf\r\n",2.0,sphereSurfaceArea(2.0));
     printf("Cylinder volume r = %lf, h = %lf : V = %lf\r\n",2.0,2.0,cylinderVolume(2.0,4.0));
     printf("Cylinder lateral surface area r = %lf, h = %lf : LSA = %lf\r\n",2.0,2.0,cylinderLateralSurfaceArea(2.0,4.0));
+    printf("Slant cylinder volume r = %lf, l = %lf : V = %lf\r\n",2.0,2.0,slantCylinderVolumeRL(2.0,2.0));
+    printf("Slant cylinder volume r = %lf, h = %lf, theta = %lf : V = %lf\r\n",2.0,2.0,M_PI/3,slantCylinderVolumeRHT(2.0,2.0,M_PI/3));
+    printf("Slant cylinder lateral surface area r = %lf, l = %lf : LSA = %lf\r\n",2.0,2.0,slantCylinderLateralSurfaceAreaRL(2.0,2.0));
+    printf("Slant cylinder lateral surface area r = %lf, h = %lf, theta = %lf : LSA = %lf\r\n",2.0,2.0,M_PI/3,slantCylinderLateralSurfaceAreaRHT(2.0,2.0,M_PI/3));
+    printf("Slant tube volume A = %lf, l = %lf : V = %lf\r\n",2.0,2.0,slantTubeVolumeAL(2.0,2.0));
+    printf("Slant tube volume A = %lf, h = %lf, theta = %lf : V = %lf\r\n",2.0,2.0,M_PI/3,slantTubeVolumeAHT(2.0,2.0,M_PI/3));
+    printf("Slant tube lateral surface area p = %lf, l = %lf : LSA = %lf\r\n",2.0,2.0,slantTubeLateralSurfaceAreaPL(2.0,2.0));
+    printf("Slant tube lateral surface area p = %lf, h = %lf, theta = %lf : LSA = %lf\r\n",2.0,2.0,M_PI/3,slantTubeLateralSurfaceAreaPHT(2.0,2.0,M_PI/3));
+    printf("Cone volume r = %lf, h = %lf : V = %lf\r\n",2.0,2.0,coneVolume(2.0,2.0));
+    printf("Cone lateral surface area r = %lf, h = %lf : LSA = %lf\r\n",2.0,2.0,coneLateralSurfaceArea(2.0,2.0));
+    printf("Pyramid volume A = %lf, h = %lf : V = %lf\r\n",2.0,2.0,pyramidVolume(2.0,2.0));
+    printf("Spherical cap volume r = %lf, h = %lf : V = %lf\r\n",2.0,2.0,sphericalCapVolume(2.0,2.0));
+    printf("Spherical cap surface area r = %lf, h = %lf : SA = %lf\r\n",2.0,2.0,sphericalCapSurfaceArea(2.0,2.0));
+    printf("Frustrum volume a = %lf, b = %lf, h = %lf : V = %lf\r\n",2.0,2.0,2.0,frustrumVolume(2.0,2.0,2.0));
+    printf("Frustrum lateral surface area a = %lf, b = %lf, h = %lf : LSA = %lf\r\n",2.0,2.0,2.0,frustrumLateralSurfaceArea(2.0,2.0,2.0));
+    printf("Spherical triangle A = %lf, B = %lf, C = %lf, r = %lf : A = %lf\r\n",M_PI/3,M_PI/3,M_PI/3,2.0,sphericalTriangleArea(M_PI/2,M_PI/2,M_PI/2,2.0));
+    printf("Torus volume a = %lf, b = %lf : V = %lf\r\n",2.0,2.0,torusVolume(2.0,2.0));
+    printf("Torus surface area a = %lf, b = %lf : SA = %lf\r\n",2.0,2.0,torusSurfaceArea(2.0,2.0));
+    printf("Ellipsoid volume a = %lf, b = %lf, c = %lf : V = %lf\r\n",2.0,2.0,2.0,ellipsoidVolume(2.0,2.0,2.0));
+    printf("Paraboloid volume a = %lf, b = %lf : V = %lf\r\n",2.0,2.0,parapoloidVolume(2.0,2.0));
     return 0;
 }

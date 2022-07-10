@@ -184,6 +184,106 @@ double cylinderLateralSurfaceArea(double r, double h)
     return 2*M_PI*r*h;
 }
 
+double slantCylinderVolumeRL(double r, double l)
+{
+    return M_PI*r*r*l;
+}
+
+double slantCylinderVolumeRHT(double r, double h, double theta)
+{
+    return M_PI*r*r*h / sin(theta);
+}
+
+double slantCylinderLateralSurfaceAreaRL(double r, double l)
+{
+    return 2*M_PI*r*l;
+}
+
+double slantCylinderLateralSurfaceAreaRHT(double r, double h, double theta)
+{
+    return 2*M_PI*r*h / sin(theta);
+}
+
+double slantTubeVolumeAL(double A, double l)
+{
+    return A*l;
+}
+
+double slantTubeVolumeAHT(double A, double h, double theta)
+{
+    return A*h / sin(theta);
+}
+
+double slantTubeLateralSurfaceAreaPL(double p, double l)
+{
+    return p*l;
+}
+
+double slantTubeLateralSurfaceAreaPHT(double p, double h, double theta)
+{
+    return p*h / sin(theta);
+}
+
+double coneVolume(double r, double h)
+{
+    return (1.0/3)*M_PI*r*r*h;
+}
+
+double coneLateralSurfaceArea(double r, double h)
+{
+    return M_PI*r*sqrt(r*r + h*h);
+}
+
+double pyramidVolume(double A, double h)
+{
+    return (1.0/3)*A*h;
+}
+
+double sphericalCapVolume(double r, double h)
+{
+    return (1.0/3)*M_PI*h*h*(3*r - h);
+}
+
+double sphericalCapSurfaceArea(double r, double h)
+{
+    return 2*M_PI*r*h;
+}
+
+double frustrumVolume(double a, double b, double h)
+{
+    return (1.0/3)*M_PI*h*(a*a + a*b + b*b);
+}
+
+double frustrumLateralSurfaceArea(double a, double b, double h)
+{
+    return M_PI*(a+b)*sqrt(h*h + pow(b-a,2));
+}
+
+double sphericalTriangleArea(double A, double B, double C, double r)
+{
+    return (A+B+C - M_PI)*r*r;
+}
+
+double torusVolume(double a, double b)
+{
+    return (1.0/4)*M_PI*M_PI*(a+b)*pow(b-a,2);
+}
+
+double torusSurfaceArea(double a, double b)
+{
+    return M_PI*M_PI*(b*b - a*a);
+}
+
+double ellipsoidVolume(double a, double b, double c)
+{
+    return (4.0/3)*M_PI*a*b*c;
+}
+
+double parapoloidVolume(double a, double b)
+{
+    return (1.0/2)*M_PI*b*b*a;
+}
+
 double integralComposite(double a, double b, fptr f, unsigned int n)
 {
     double sum = 0;
