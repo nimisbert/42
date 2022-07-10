@@ -46,7 +46,15 @@ int main(int argc, char* argv[])
     printf("Integral numerical approximation of x^2 by composite rule %lf \r\n",integralComposite(0.0, 2.0, fooUT, 1000));
     printf("Integral of x^2 analytical result (1/3 * x^3) for reference = %lf \r\n",(1.0/3)*2.0*2.0*2.0);
     printf("Ellipse Perimeter raw approx a = %lf, b = %lf, s = %d : P = %lf\r\n",2.0,1.0,1000,ellipsePerimeterIntegralApproximation(2.0,1.0,10000));
-
-
+    printf("Parabola Area a = %lf, b = %lf : A = %lf\r\n",2.0,4.0,parabolaArea(2.0,4.0));
+    printf("Parabola Arc length a = %lf, b = %lf : P = %lf\r\n",2.0,4.0,parabolaArcLength(2.0,4.0));
+    printf("Rectangular parallelepiped volume a = %lf, b = %lf, c = %lf : V = %lf \r\n",2.0,2.0,2.0,rectangularParallelepipedVolume(2.0,2.0,2.0));
+    printf("Rectangular parallelepiped surface area a = %lf, b = %lf, c = %lf : SA = %lf \r\n",2.0,2.0,2.0,rectangularParallelepipedSurfaceArea(2.0,2.0,2.0));
+    printf("Parallelepiped volume a = %lf, b = %lf, c = %lf, theta = %lf : V = %lf \r\n",2.0,2.0,2.0,M_PI/3,parallelepipedVolumeABCT(2.0,2.0,2.0,M_PI/3));
+    printf("Parallelepiped volume A = %lf, h = %lf : V = %lf \r\n",4.0,2.0*sin(M_PI/3),parallelepipedVolumeAh(4.0,2.0*sin(M_PI/3)));
+    printf("Sphere volume r = %lf : V = %lf\r\n",2.0,sphereVolume(2.0));
+    printf("Sphere surface area r = %lf : SA = %lf\r\n",2.0,sphereSurfaceArea(2.0));
+    printf("Cylinder volume r = %lf, h = %lf : V = %lf\r\n",2.0,2.0,cylinderVolume(2.0,4.0));
+    printf("Cylinder lateral surface area r = %lf, h = %lf : LSA = %lf\r\n",2.0,2.0,cylinderLateralSurfaceArea(2.0,4.0));
     return 0;
 }

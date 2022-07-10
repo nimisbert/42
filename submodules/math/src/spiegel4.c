@@ -134,6 +134,56 @@ double ellipsePerimeterIntegralApproximation(double a, double b, unsigned int ns
     return 4*a*integralComposite(0,M_PI/2,f,nstep);
 }
 
+double parabolaArea(double a, double b)
+{
+    return (2.0/3.0)*a*b;
+}
+
+double parabolaArcLength(double a, double b)
+{
+    return 0.5 * sqrt(b*b + 16*a*a) + (b*b/(8*a)) * log((4*a + sqrt(b*b + 16*a*a))/b);
+}
+
+double rectangularParallelepipedVolume(double a, double b, double c)
+{
+    return a*b*c;
+}
+
+double rectangularParallelepipedSurfaceArea(double a, double b, double c)
+{
+    return 2*(a*b + a*c + b*c);
+}
+
+double parallelepipedVolumeABCT(double a, double b, double c, double theta)
+{
+    return a*b*c*sin(theta);
+}
+
+double parallelepipedVolumeAh(double A, double h)
+{
+    return A*h;
+}
+
+double sphereVolume(double r)
+{
+    return (4.0/3) * M_PI * r*r*r;
+}
+
+double sphereSurfaceArea(double r)
+{
+    return 4 * M_PI * r*r;
+}
+
+double cylinderVolume(double r, double h)
+{
+    return M_PI*r*r*h;
+}
+
+double cylinderLateralSurfaceArea(double r, double h)
+{
+    return 2*M_PI*r*h;
+}
+
 double integralComposite(double a, double b, fptr f, unsigned int n)
 {
     double sum = 0;

@@ -126,6 +126,21 @@ double ellipseArea(double a, double b);
 double ellipsePerimeterRawApproximation(double a, double b);
 double ellipsePerimeterIntegralApproximation(double a, double b, unsigned int nstep);
 
+double parabolaArea(double a, double b);
+double parabolaArcLength(double a, double b);
+
+double rectangularParallelepipedVolume(double a, double b, double c);
+double rectangularParallelepipedSurfaceArea(double a, double b, double c);
+
+double parallelepipedVolumeABCT(double a, double b, double c, double theta);
+double parallelepipedVolumeAh(double A, double h);
+
+double sphereVolume(double r);
+double sphereSurfaceArea(double r);
+
+double cylinderVolume(double r, double h);
+double cylinderLateralSurfaceArea(double r, double h);
+
 typedef double (*fptr) (double x); // f(x)
 double integralComposite(double a, double b, fptr f, unsigned int n);
 #endif
