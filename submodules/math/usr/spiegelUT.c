@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <spiegel3.h>
 #include <spiegel4.h>
+#include <spiegel5.h>
 
 double fooUT(double x)
 {
@@ -76,5 +77,14 @@ int main(int argc, char* argv[])
     printf("Torus surface area a = %lf, b = %lf : SA = %lf\r\n",2.0,2.0,torusSurfaceArea(2.0,2.0));
     printf("Ellipsoid volume a = %lf, b = %lf, c = %lf : V = %lf\r\n",2.0,2.0,2.0,ellipsoidVolume(2.0,2.0,2.0));
     printf("Paraboloid volume a = %lf, b = %lf : V = %lf\r\n",2.0,2.0,parapoloidVolume(2.0,2.0));
+    printf("A = %lf To degrees : %lf\r\n",M_PI,toDeg(M_PI));
+    printf("A = %lf To radiant : %lf\r\n",180.0,toRad(180));
+    printf("cot(%lf) = %lf\r\n",M_PI/3,cot(M_PI/3));
+    printf("sec(%lf) = %lf\r\n",M_PI/3,sec(M_PI/3));
+    printf("csc(%lf) = %lf\r\n",M_PI/3,csc(M_PI/3));
+    printf("law of sines a = %lf, b = %lf, c = %lf, A = %lf, B = %lf, C = %lf : ? %d \r\n",2.0,2.0,2.0,M_PI/3,M_PI/3,M_PI/3,planeLawOfSines(2.0,2.0,2.0,M_PI/3,M_PI/3,M_PI/3));
+    printf("law of cosines a = %lf, b = %lf, c = %lf, C = %lf : ? %d\r\n", 2.0, 2.0, 2.0, M_PI/3, planeLawOfCosines(2.0,2.0,2.0,M_PI/3));
+    printf("law of tangent a = %lf, b = %lf, A = %lf, B = %lf : ? %d\r\n", 2.0, 2.0, M_PI/3, M_PI/3, planeLawOfTangentsABab(2.0, 2.0, M_PI/3, M_PI/3));
+    printf("law of tangent A = %lf, a = %lf, b = %lf, c = %lf : ? %d\r\n",M_PI/3,2.0,2.0,2.0,planeLawOfTangentsAabc(M_PI/3,2.0,2.0,2.0));
     return 0;
 }
