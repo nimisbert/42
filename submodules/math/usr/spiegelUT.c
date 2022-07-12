@@ -82,9 +82,17 @@ int main(int argc, char* argv[])
     printf("cot(%lf) = %lf\r\n",M_PI/3,cot(M_PI/3));
     printf("sec(%lf) = %lf\r\n",M_PI/3,sec(M_PI/3));
     printf("csc(%lf) = %lf\r\n",M_PI/3,csc(M_PI/3));
-    printf("law of sines a = %lf, b = %lf, c = %lf, A = %lf, B = %lf, C = %lf : ? %d \r\n",2.0,2.0,2.0,M_PI/3,M_PI/3,M_PI/3,planeLawOfSines(2.0,2.0,2.0,M_PI/3,M_PI/3,M_PI/3));
-    printf("law of cosines a = %lf, b = %lf, c = %lf, C = %lf : ? %d\r\n", 2.0, 2.0, 2.0, M_PI/3, planeLawOfCosines(2.0,2.0,2.0,M_PI/3));
-    printf("law of tangent a = %lf, b = %lf, A = %lf, B = %lf : ? %d\r\n", 2.0, 2.0, M_PI/3, M_PI/3, planeLawOfTangentsABab(2.0, 2.0, M_PI/3, M_PI/3));
-    printf("law of tangent A = %lf, a = %lf, b = %lf, c = %lf : ? %d\r\n",M_PI/3,2.0,2.0,2.0,planeLawOfTangentsAabc(M_PI/3,2.0,2.0,2.0));
+    printf("Plane law of sines a = %lf, b = %lf, c = %lf, A = %lf, B = %lf, C = %lf : ? %d \r\n",2.0,2.0,2.0,M_PI/3,M_PI/3,M_PI/3,planeLawOfSines(2.0,2.0,2.0,M_PI/3,M_PI/3,M_PI/3));
+    printf("Plane law of cosines a = %lf, b = %lf, c = %lf, C = %lf : ? %d\r\n", 2.0, 2.0, 2.0, M_PI/3, planeLawOfCosines(2.0,2.0,2.0,M_PI/3));
+    printf("Plane law of tangent a = %lf, b = %lf, A = %lf, B = %lf : ? %d\r\n", 2.0, 2.0, M_PI/3, M_PI/3, planeLawOfTangentsABab(2.0, 2.0, M_PI/3, M_PI/3));
+    printf("Plane law of tangent A = %lf, a = %lf, b = %lf, c = %lf : ? %d\r\n",M_PI/3,2.0,2.0,2.0,planeLawOfTangentsAabc(M_PI/3,2.0,2.0,2.0));
+    printf("Spherical law of sines a = %lf, b = %lf, c = %lf, A = %lf, B = %lf, C = %lf : ? %d\r\n",2.0,2.0,2.0,M_PI/3,M_PI/3,M_PI/3,sphericalLawOfSines(2.0,2.0,2.0,M_PI/3,M_PI/3,M_PI/3));
+    printf("Spherical law of cosines a = %lf, b = %lf, c = %lf, A = %lf : ? %d\r\n",2.0,2.0,2.0,M_PI/3,sphericalLawOfCosinesAabc(2.0,2.0,2.0,M_PI/3));
+    printf("Spherical law of cosines A = %lf, B = %lf, C = %lf, a = %lf : ? %d\r\n",M_PI/3,M_PI/3,M_PI/3,2.0,sphericalLawOfCosinesABCa(M_PI/3,M_PI/3,M_PI/3,2.0));
+    printf("Spherical law of tangents A = %lf, B = %lf, a = %lf, b = %lf : ? %d\r\n",M_PI/3,M_PI/3,2.0,2.0,sphericalLawOfTangentsABab(M_PI/3,M_PI/3,2.0,2.0));
+    printf("Spherical law of tangents A = %lf, a = %lf, b = %lf, c = %lf : ? %d\r\n",M_PI/3,2.0,2.0,2.0,sphericalLawOfTangentsAabc(M_PI/3,2.0,2.0,2.0));
+    printf("Spherical law of tangents A = %lf, B = %lf, C = %lf, a = %lf : ? %d\r\n",M_PI/3,M_PI/3,M_PI/3,2.0,sphericalLawOfTangentsABCa(M_PI/3,M_PI/3,M_PI/3,2.0));
+    printf("Napier's rule with tan a = %lf, b = %lf, B = %lf : ? %d\r\n",2.0,2.0,M_PI/3,napierRuleTan(2.0,2.0,M_PI/3));
+    printf("Napier's rule with cos A = %lf, a = %lf, B = %lf : ? %d\r\n",M_PI/3,2.0,M_PI/3,napierRuleCos(M_PI/3,2.0,M_PI/3));
     return 0;
 }
