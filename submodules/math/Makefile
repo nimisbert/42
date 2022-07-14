@@ -1,5 +1,5 @@
 .PHONY : clean
-.INTERMEDIATE : spiegelUT.o spiegel3.o spiegel4.o
+.INTERMEDIATE : spiegelUT.o spiegel3.o spiegel4.o spiegel5.o spiegel9.o
 
 VPATH =  src inc usr /mingw64/lib /mingw64/include
 
@@ -8,7 +8,7 @@ GXX = gcc
 COMPILE_FLAGS = -std=c++20
 INCLUDE_FLAGS = -I ./inc
 
-spiegelUT: spiegelUT.o spiegel3.o spiegel4.o spiegel5.o spiegel6.o
+spiegelUT: spiegelUT.o spiegel3.o spiegel4.o spiegel5.o spiegel9.o
 	$(GXX) $^ -o $@
 	mv $@ ./build/$@
 	rm *.o
@@ -20,7 +20,7 @@ spiegel4.o: spiegel4.c spiegel4.h
 	$(GXX) -c $< $(INCLUDE_FLAGS)
 spiegel5.o: spiegel5.c spiegel5.h
 	$(GXX) -c $< $(INCLUDE_FLAGS)
-spiegel6.o: spiegel6.c spiegel6.h
+spiegel9.o: spiegel9.c spiegel9.h
 	$(GXX) -c $< $(INCLUDE_FLAGS)
 
 clean:

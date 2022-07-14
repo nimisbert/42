@@ -3,7 +3,7 @@
 #include <spiegel3.h>
 #include <spiegel4.h>
 #include <spiegel5.h>
-#include <spiegel6.h>
+#include <spiegel9.h>
 
 double fooUT(double x)
 {
@@ -95,27 +95,6 @@ int main(int argc, char* argv[])
     printf("Spherical law of tangents A = %lf, B = %lf, C = %lf, a = %lf : ? %d\r\n",M_PI/3,M_PI/3,M_PI/3,2.0,sphericalLawOfTangentsABCa(M_PI/3,M_PI/3,M_PI/3,2.0));
     printf("Napier's rule with tan a = %lf, b = %lf, B = %lf : ? %d\r\n",2.0,2.0,M_PI/3,napierRuleTan(2.0,2.0,M_PI/3));
     printf("Napier's rule with cos A = %lf, a = %lf, B = %lf : ? %d\r\n",M_PI/3,2.0,M_PI/3,napierRuleCos(M_PI/3,2.0,M_PI/3));
-    complex c = {2.0, 3.0};
-    printf("Complex is equal %d\r\n",complexEqual(c,c));
-    complex r = complexAdd(c,c);
-    printf("Complex add %lf %lf = %lf %lf\r\n",c.real,c.imag,r.real,r.imag);
-    r = complexSub(c,c);
-    printf("Complex sub %lf %lf = %lf %lf\r\n",c.real,c.imag,r.real,r.imag);
-    r = complexMul(c,c);
-    printf("Complex mul %lf %lf = %lf %lf\r\n",c.real,c.imag,r.real,r.imag);
-    r = complexDiv(c,c);
-    printf("Complex div %lf %lf = %lf %lf\r\n",c.real,c.imag,r.real,r.imag);
-    r = toPolar(c);
-    printf("toPolar real %lf imag %lf, r = %lf theta = %lf\r\n",r.real,r.imag,r.r,r.theta);
-    c = toPlane(r);
-    printf("toPlane real %lf imag %lf, r = %lf theta = %lf\r\n",c.real,c.imag,c.r,c.theta);
-    r = complexPolarMul(r,r);
-    printf("Polar Mul real = %lf imag = %lf r = %lf theta = %lf\r\n",r.real,r.imag,r.r,r.theta);
-    r = complexPolarDiv(r,r);
-    printf("Polar Div real = %lf imag = %lf r = %lf theta = %lf\r\n",r.real,r.imag,r.r,r.theta);
-    r = deMoivre(c,3.0);
-    printf("DeMoivre real = %lf imag = %lf r = %lf theta = %lf\r\n",r.real,r.imag,r.r,r.theta);
-    r = roots(r,0,3);
-    printf("Roots real = %lf imag = %lf r = %lf theta = %lf\r\n",r.real,r.imag,r.r,r.theta);
+
     return 0;
 }
