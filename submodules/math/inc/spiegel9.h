@@ -5,8 +5,10 @@
  * ALGEBRAIC EQUATIONS
  */
 
+#include <math.h>
 #include <complex.h>
 
-complex* quadraticEquationSolutions(double a, double b, double c);
+complex* solveQuadraticEquation(double a, double b, double c);
+complex* solveCubicEquation(double a, double b, double c);
 
 #endif

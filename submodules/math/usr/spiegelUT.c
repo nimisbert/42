@@ -1,4 +1,5 @@
 #include <math.h>
+#include <complex.h>
 #include <stdio.h>
 #include <spiegel3.h>
 #include <spiegel4.h>
@@ -12,6 +13,7 @@ double fooUT(double x)
 
 int main(int argc, char* argv[])
 {
+    // SPIEGEL 3 :
     printf("factorial %d! = 1 : %lf\r\n",0,factorial(0));
     printf("factorial %d! = 6 : %lf\r\n",3,factorial(3));
     printf("factorial %d! = 6 : %lf\r\n",6,factorial(6));
@@ -21,6 +23,8 @@ int main(int argc, char* argv[])
     printf("binCoef (%d %d)t = %lf\r\n",9,10,binomialCoeficient(9,10));
     printf("multinomial (%lf + %lf + %lf + %lf)^%d = %lf\r\n",1.0,2.0,3.0,4.0,5,multinomial(5,4,1.0,2.0,3.0,4.0));
     printf("multinomial (%lf + %lf + %lf + %lf)^%d = %lf\r\n",-1.0,2.0,-3.0,-4.0,2,multinomial(2,4,-1.0,2.0,-3.0,-4.0));
+    
+    // SPIEGEL 4 : 
     printf("Rect Area a = %lf, b = %lf : A = %lf\r\n",2.0,8.0,rectangleArea(2.0,8.0));
     printf("Rect Perimeter a = %lf, b = %lf : P = %lf\r\n",2.0,8.0,rectanglePerimeter(2.0,8.0));
     printf("Parallelo Area h = %lf, b = %lf : A = %lf\r\n",2.0,8.0,parallelogramArea(2.0,8.0));
@@ -78,6 +82,8 @@ int main(int argc, char* argv[])
     printf("Torus surface area a = %lf, b = %lf : SA = %lf\r\n",2.0,2.0,torusSurfaceArea(2.0,2.0));
     printf("Ellipsoid volume a = %lf, b = %lf, c = %lf : V = %lf\r\n",2.0,2.0,2.0,ellipsoidVolume(2.0,2.0,2.0));
     printf("Paraboloid volume a = %lf, b = %lf : V = %lf\r\n",2.0,2.0,parapoloidVolume(2.0,2.0));
+    
+    // SPIEGEL 5 : 
     printf("A = %lf To degrees : %lf\r\n",M_PI,toDeg(M_PI));
     printf("A = %lf To radiant : %lf\r\n",180.0,toRad(180));
     printf("cot(%lf) = %lf\r\n",M_PI/3,cot(M_PI/3));
@@ -95,6 +101,17 @@ int main(int argc, char* argv[])
     printf("Spherical law of tangents A = %lf, B = %lf, C = %lf, a = %lf : ? %d\r\n",M_PI/3,M_PI/3,M_PI/3,2.0,sphericalLawOfTangentsABCa(M_PI/3,M_PI/3,M_PI/3,2.0));
     printf("Napier's rule with tan a = %lf, b = %lf, B = %lf : ? %d\r\n",2.0,2.0,M_PI/3,napierRuleTan(2.0,2.0,M_PI/3));
     printf("Napier's rule with cos A = %lf, a = %lf, B = %lf : ? %d\r\n",M_PI/3,2.0,M_PI/3,napierRuleCos(M_PI/3,2.0,M_PI/3));
+    
+    // SPIEGEL 9 :
+    complex* solutions;
+    solutions = solveQuadraticEquation(4.0,2.0,1.0);
+    printf("Quadratic Equation : %lf x^2 + %lf x + %lf \r\n",4.0,2.0,1.0);
+    printf("Solution 0 : %lf + %lf i\r\n",creal(solutions[0]),cimag(solutions[0]));
+    printf("Solution 1 : %lf + %lf i\r\n",creal(solutions[1]),cimag(solutions[1]));
+    printf("s0 + s1 == -b/a ? %lf == %lf \r\n",creal(solutions[0] + solutions[1]),-2.0/4.0);
+    printf("s0 * s1 ==  c/a ? %lf == %lf \r\n",creal(solutions[0] * solutions[1]), 1.0/4.0);
+
+    solutions = solveCubicEquation(4.0,2.0,1.0);
 
     return 0;
 }
