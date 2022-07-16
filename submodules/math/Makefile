@@ -8,7 +8,7 @@ GXX = gcc
 COMPILE_FLAGS = -std=c++20
 INCLUDE_FLAGS = -I ./inc
 
-spiegelUT: spiegelUT.o spiegel3.o spiegel4.o spiegel5.o spiegel9.o
+spiegelUT: spiegelUT.o spiegel3.o spiegel4.o spiegel5.o spiegel9.o spiegel10.o
 	$(GXX) $^ -o $@
 	mv $@ ./build/$@
 	rm *.o
@@ -21,6 +21,8 @@ spiegel4.o: spiegel4.c spiegel4.h
 spiegel5.o: spiegel5.c spiegel5.h
 	$(GXX) -c $< $(INCLUDE_FLAGS)
 spiegel9.o: spiegel9.c spiegel9.h
+	$(GXX) -c $< $(INCLUDE_FLAGS)
+spiegel10.o: spiegel10.c spiegel10.h
 	$(GXX) -c $< $(INCLUDE_FLAGS)
 
 clean:

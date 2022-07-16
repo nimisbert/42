@@ -1,10 +1,12 @@
 #include <math.h>
 #include <complex.h>
 #include <stdio.h>
+
 #include <spiegel3.h>
 #include <spiegel4.h>
 #include <spiegel5.h>
 #include <spiegel9.h>
+#include <spiegel10.h>
 
 double fooUT(double x)
 {
@@ -104,14 +106,33 @@ int main(int argc, char* argv[])
     
     // SPIEGEL 9 :
     complex* solutions;
-    solutions = solveQuadraticEquation(4.0,2.0,1.0);
-    printf("Quadratic Equation : %lf x^2 + %lf x + %lf \r\n",4.0,2.0,1.0);
+    double a = 4.0, b = 1.0, c = .05;
+
+
+
+    solutions = solveQuadraticEquation(a,b,c);
+    printf("Quadratic Equation : %lf x^2 + %lf x + %lf \r\n",a,b,c);
     printf("Solution 0 : %lf + %lf i\r\n",creal(solutions[0]),cimag(solutions[0]));
     printf("Solution 1 : %lf + %lf i\r\n",creal(solutions[1]),cimag(solutions[1]));
-    printf("s0 + s1 == -b/a ? %lf == %lf \r\n",creal(solutions[0] + solutions[1]),-2.0/4.0);
-    printf("s0 * s1 ==  c/a ? %lf == %lf \r\n",creal(solutions[0] * solutions[1]), 1.0/4.0);
+    printf("s0 + s1 == -b/a ? %lf == %lf \r\n",creal(solutions[0] + solutions[1]),-b/a);
+    printf("s0 * s1 ==  c/a ? %lf == %lf \r\n",creal(solutions[0] * solutions[1]), c/a);
 
-    solutions = solveCubicEquation(4.0,2.0,1.0);
+    /* DOES NOT WORK
+    printf("Cubic Equation : x^3 + %lf x^2 + %lf x + %lf\r\n",a,b,c);
+    solutions = solveCubicEquation(a,b,c);
+    printf("Solution 0 : %lf + %lf i\r\n",creal(solutions[0]),cimag(solutions[0]));
+    printf("Solution 1 : %lf + %lf i\r\n",creal(solutions[1]),cimag(solutions[1]));
+    printf("Solution 2 : %lf + %lf i\r\n",creal(solutions[2]),cimag(solutions[2]));
+    printf("s0 + s1 + s2 == -a ? %lf + %lf i == %lf\r\n",creal(solutions[0]+solutions[1]+solutions[2]),cimag(solutions[0]+solutions[1]+solutions[2]),-a);
+    printf("s0*s1 + s1*s2 + s2*s0 == b ? %lf + %lf i == %lf\r\n",creal(solutions[0]*solutions[1] + solutions[1]*solutions[2] + solutions[2]*solutions[0]),b);
+    printf("s0*s1*s2 == -c ? %lf == %lf\r\n", creal(solutions[0]*solutions[1]*solutions[2]),-c); */
 
+
+    // SPIEGEL 10:
+    double *line;
+    printf("Distance between {3.0,2.0} and {9.0,7.0} : %lf\r\n",distanceBetweenPoints(3.0,2.0,9.0,7.0));
+    printf("Slope    between {3.0,2.0} and {9.0,7.0} : %lf\r\n",slopeBetweenPoints(3.0,2.0,9.0,7.0));
+    line = lineBetweenPoints(3.0,2.0,9.0,7.0);
+    printf("Line     between // and // : b = %lf ; m = %lf\r\n",line[0],line[1]);
     return 0;
 }

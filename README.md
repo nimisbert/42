@@ -6,13 +6,11 @@
   - [0.2 - Directory tree](#02---directory-tree)
 - [1.0 - Submodules](#10---submodules)
   - [1.1 - math](#11---math)
-    - [Binomial Formula & Binomial Coeficient](#binomial-formula--binomial-coeficient)
-    - [Geometric Formulas](#geometric-formulas)
-    - [Trigonometric Functions](#trigonometric-functions)
-    - [Exponential and Logarithmic Functions](#exponential-and-logarithmic-functions)
-    - [Hyperbolic Functions](#hyperbolic-functions)
-    - [Solutions of Algebraic Equations](#solutions-of-algebraic-equations)
-    - [Formulas from Plane Analytic Geometry](#formulas-from-plane-analytic-geometry)
+    - [**Binomial Formula & Binomial Coeficient**](#binomial-formula--binomial-coeficient)
+    - [**Geometric Formulas**](#geometric-formulas)
+    - [**Tigonometric Functions**](#tigonometric-functions)
+    - [**Solutions of Algebraic Equations**](#solutions-of-algebraic-equations)
+    - [**Formulas from Plane Analytic Geometry**](#formulas-from-plane-analytic-geometry)
 
 # 0.0 - Summary
 
@@ -33,16 +31,20 @@ TODO :
 
 - submodules
   - math
-    - inc
-    - src
-    - ressources
-    - build
+    - inc : include files .h
+    - src : source files .c
+    - ressources : not tracked .bin .svg
+    - build : not tracked .exe
 
 # 1.0 - Submodules 
 
 ## 1.1 - math
 
-### Binomial Formula & Binomial Coeficient
+Codes regarding math related topics.
+
+### **Binomial Formula & Binomial Coeficient**
+
+spiegel 3
 
 |      Function       | State | 
 |---------------------|-------|
@@ -51,27 +53,49 @@ TODO :
 | binomialCoeficient  | coded |
 | multinomial         | coded |
 
-### Geometric Formulas
+### **Geometric Formulas**
+
+spiegel 4
 
 To Do : common perimeter and area functions, structs... 
 
-### Trigonometric Functions
+### **Tigonometric Functions**
 
-Implemented in C99 : math.h
-Except weird ones like cotangent, cosecant, ...
+spiegel 5
 
-### Exponential and Logarithmic Functions
+|      Function       | State | 
+|---------------------|-------|
+| toRad | coded |
+| toDeg | coded |
+| cot | coded |
+| sec | coded |
+| csc | coded |
+| planeLawOfSines | coded |
+| planeLawOfCosines | coded |
+| planeLawOfTangents | coded |
+| sphericalLawOfSines | coded |
+| sphericalLawOfCosines | coded |
+| sphericalLawOfTangents | coded |
+| napierRuleTan | coded |
+| napierRuleCos | coded |
 
-To Do .
+### **Solutions of Algebraic Equations**
 
-### Hyperbolic Functions
+spiegel 9
 
-To Do .
+| Number |      Name           | Type | State | 
+|--------|---------------------|------|-------|
+| 9.1 | solveQuadraticEquation | function | coded |
+| 9.3 & 9.4 | solveCubicEquation | function | toDo : check by hand + other sources |
+| 9.7 | solveQuarticEquation | function | toDo : need cubic |
 
-### Solutions of Algebraic Equations
+### **Formulas from Plane Analytic Geometry**
 
-To Do .
+spiegel 10 
 
-### Formulas from Plane Analytic Geometry
-
-To Do .
+| Number |      Name           | Type | State | 
+|--------|---------------------|------|-------|
+| 10.1 | distanceBetweenPoints | function | coded |
+| 10.2 | slopeBetweenPoints | function | coded |
+| 10.3 & 10.4 | lineBetweenPoints | function | coded |
+| 10.9 | angleBetweenLines | function | toDo |
