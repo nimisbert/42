@@ -98,4 +98,9 @@ spiegel 10
 | 10.1 | distanceBetweenPoints | function | coded |
 | 10.2 | slopeBetweenPoints | function | coded |
 | 10.3 & 10.4 | lineBetweenPoints | function | coded |
-| 10.9 | angleBetweenLines | function | toDo |
+| 10.9 | angleBetweenLines | function | coded |
+| 10.10 | triangleAreaFromVertices | function | coded |
+| 10.10.a | point | structure | coded |
+| 10.11 | pointTransformPureTranslation | function | coded |
+| 10.12 | pointTransformPureRotation | function | coded |
+| 10.13 | pointTransform | function | toDo |

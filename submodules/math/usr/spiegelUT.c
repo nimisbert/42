@@ -129,10 +129,40 @@ int main(int argc, char* argv[])
 
 
     // SPIEGEL 10:
-    double *line;
-    printf("Distance between {3.0,2.0} and {9.0,7.0} : %lf\r\n",distanceBetweenPoints(3.0,2.0,9.0,7.0));
-    printf("Slope    between {3.0,2.0} and {9.0,7.0} : %lf\r\n",slopeBetweenPoints(3.0,2.0,9.0,7.0));
-    line = lineBetweenPoints(3.0,2.0,9.0,7.0);
-    printf("Line     between // and // : b = %lf ; m = %lf\r\n",line[0],line[1]);
+    point p1 = {1.0,1.0};
+    point p2 = {2.0,2.0};
+
+    printf("Distance between points p1 & p2 : %lf\r\n",distanceBetweenPoints(p1.x,p1.y,p2.x,p2.y));
+    printf("Slope between points p1 & p2 : %lf\r\n",slopeBetweenPoints(p1.x,p1.y,p2.x,p2.y));
+    line l1;
+    l1 = lineBetweenPoints(p1.x,p1.y,p2.x,p2.y);
+    printf("Line between p1 & p2 : b = %lf, m = %lf\r\n",l1.b,l1.m);
+
+    point p3 = {1.0,2.0};
+    point p4 = {2.0,1.0};
+    line l2 = lineBetweenPoints(p3.x,p3.y,p4.x,p4.y);
+    printf("Angle between lines l1, l2 : %lf\r\n",toDeg(angleBetweenLines(l1,l2)));
+
+    printf("Area from vertices %lf\r\n",triangleAreaFromVertices(p1,p2,p3));
+
+    point p122; //p1 in {2.0, 2.0} coordinate system
+    p122 = pointTransformPureTranslation(p1, 2.0,2.0);
+    printf("Tanslated p1 = {%lf, %lf}\r\n",p122.x,p122.y);
+
+    p122 = pointTransformPureRotation(p1,1.51);
+    printf("Rotated p1 = {%lf, %lf}\r\n",p122.x,p122.y);
+
+    p122 = pointTransform(p1,2.0,2.0,1.51);
+    printf("Translated Rotated p1 = {%lf, %lf}\r\n",p122.x,p122.y);
+
+    point pCircle = {2.0,0.0};
+    printf("pCircle is on circle planar ? %d\r\n",pIsOnCirclePlanar(pCircle, 0.0, 0.0, 2.0));
+
+    pCircle.x = 0.0;
+    pCircle = toPolar(pCircle);
+    printf("pCircle = {%lf, %lf}xy = {%lf, %lf}p is on circle polar ? %d\r\n",pCircle.x,pCircle.y,pCircle.r,pCircle.theta,pIsOnCirclePolar(pCircle, 2.0, 0.0));
+
+
+
     return 0;
 }
