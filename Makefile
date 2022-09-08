@@ -2,7 +2,8 @@
 
 all:
 	+$(MAKE) -C submodules/math
-	+$(MAKE) -C submodules/tuner
+	+$(MAKE) -C submodules/algo
+#	+$(MAKE) -C submodules/tuner
 
 clean:
 	rm *.o *.exe
