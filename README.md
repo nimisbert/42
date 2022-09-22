@@ -11,9 +11,6 @@ Personnal repository for coding, electronics and exploring science.
 
 ## 0.1 - To Do 
 
-blue : programming
-red  : electronics
-
 TODO : 
  1. **<span style="color:blue">Working on abstraction in C</span>**
  2. **<span style="color:red">Working on power supply</span>**
@@ -28,6 +25,9 @@ TODO :
 
 ## 0.2 - Directory tree
 
+- electronics
+  - power_supply
+    - 230V 50Hz AC to 5V-12V DC 
 - submodules
   - abst
     - Abstraction in C
