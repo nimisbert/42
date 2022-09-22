@@ -158,12 +158,35 @@ int dlist_inprev(Dlist *l, Dnode *n, const void *data)
 {
     Dnode *nn; // new node
     //
+    if((n == NULL) && (list_size(l)!=0))
+    {
+        return -1;
+    }
     if((nn = (Dnode *)malloc(sizeof(Dnode))) == NULL)
     {
         return -1;
     }
     nn->data = (void *)data;
-
+    if(list_size(l) == 0)
+    {
+        nn->next = NULL;
+        nn->prev = NULL;
+        l->head = nn;
+        l->tail = nn;
+    }
+    else
+    {
+        nn->next = n;
+        nn->prev = n->prev;
+        if(n->prev == NULL)
+        {
+            l->head = nn;
+        }
+        else
+        {
+            n->prev->next = nn;
+        }
+    }
     l->size++;
     return 0;
 }
@@ -171,29 +194,29 @@ int dlist_inprev(Dlist *l, Dnode *n, const void *data)
 int dlist_remove(Dlist *l, Dnode *n, void **data)
 {
     Dnode *rn; //removed node
-    if(l->size == 0)
-    {
-        return -1;
-    }
-
-    if(n == NULL)
+    if((l->size == 0)||(n==NULL))
     {
         return -1;
     }
     else
     {
-        *data = n->data;
         rn = n;
-        n->prev->next = n->next;
+        *data = n->data;
+        if(n->prev == NULL)
+        {
+            l->head = n->next;
+        }
+        else
+        {
+            n->next->prev = rn->next;
+        }
         if(n->next == NULL)
         {
             l->tail = n->prev;
         }
-
-        n->next->prev = n->prev;
-        if(n->prev == NULL)
+        else
         {
-            l->head = n->next;
+            n->next->prev = rn->prev;
         }
         free(rn);
     }
