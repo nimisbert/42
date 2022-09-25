@@ -1444,7 +1444,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 84fe2674-e0ae-4663-b0b3-117a0c3033b9)
   )
-  (text "RC" (at 101.6 15.24 0)
+  (text "RC HIGH PASS FILTER" (at 101.6 15.24 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid ae99d488-85a2-4d7c-aa15-d68152532a1e)
   )
@@ -1587,23 +1587,8 @@
     )
     (pin "1" (uuid f48e7cfd-b757-4b48-8f19-7716ea472670))
     (pin "5" (uuid 32d52539-ccd2-4863-8a12-e6e6c0c435e4))
-    (pin "9" (uuid fcf1d1c3-0035-4851-97bc-2248924ba685))
     (pin "7" (uuid c3bc668a-5004-43ca-803a-0fcd9a08dec7))
-  )
-
-  (symbol (lib_id "Device:R_US") (at 114.3 25.4 90) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
-    (uuid 1b949c5b-9c4c-45e5-a8b0-54be38989e70)
-    (property "Reference" "R1" (id 0) (at 114.3 19.05 90))
-    (property "Value" "R_US" (id 1) (at 114.3 21.59 90))
-    (property "Footprint" "" (id 2) (at 114.554 24.384 90)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (id 3) (at 114.3 25.4 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 4a70644a-0ea6-41bf-a3f7-57acbbedf51d))
-    (pin "2" (uuid fa060065-e7c4-49d1-8cff-0f9401fd79f8))
+    (pin "9" (uuid fcf1d1c3-0035-4851-97bc-2248924ba685))
   )
 
   (symbol (lib_id "Device:LED") (at 238.76 41.91 90) (unit 1)
@@ -1718,8 +1703,8 @@
     (property "Spice_Primitive" "D" (id 5) (at 88.9 29.21 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (pin "2" (uuid e0ae11a2-19c4-4183-91ca-5767b49b6362))
     (pin "1" (uuid 38c9e2fc-1291-4484-b353-06bb197c4fda))
+    (pin "2" (uuid e0ae11a2-19c4-4183-91ca-5767b49b6362))
   )
 
   (symbol (lib_id "Device:C_Polarized") (at 154.94 33.02 0) (unit 1)
@@ -1963,23 +1948,38 @@
     (pin "2" (uuid a8ed9e71-3bdc-4489-8094-ac66d08444de))
   )
 
-  (symbol (lib_id "Device:C_Polarized") (at 120.65 31.75 0) (unit 1)
+  (symbol (lib_id "Device:C") (at 120.65 31.75 180) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
-    (uuid f0e88ca5-cfe1-4efd-9e98-3add5947a49b)
-    (property "Reference" "C1" (id 0) (at 124.46 29.5909 0)
-      (effects (font (size 1.27 1.27)) (justify left))
+    (uuid f04ce009-5053-44fb-a5cc-2b9080d20ae1)
+    (property "Reference" "C?" (id 0) (at 124.46 30.4799 0)
+      (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "C_Polarized" (id 1) (at 124.46 32.1309 0)
-      (effects (font (size 1.27 1.27)) (justify left))
+    (property "Value" "470u" (id 1) (at 124.46 33.0199 0)
+      (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (id 2) (at 121.6152 35.56 0)
+    (property "Footprint" "" (id 2) (at 119.6848 27.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 120.65 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 57247335-f589-4b5c-b1f8-cd4580b13593))
-    (pin "2" (uuid b5eefa83-bc78-49e2-ac18-2581d9f30c32))
+    (pin "1" (uuid e5c7a2ed-6fcb-4c04-baa6-99ec69656a9a))
+    (pin "2" (uuid 165a2d0a-ab42-4a64-a154-a9ada02aeae5))
+  )
+
+  (symbol (lib_id "Device:R_US") (at 114.3 25.4 270) (unit 1)
+    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (uuid f1f0be2d-ebca-4268-a401-690830272c32)
+    (property "Reference" "R?" (id 0) (at 114.3 19.05 90))
+    (property "Value" "130" (id 1) (at 114.3 21.59 90))
+    (property "Footprint" "" (id 2) (at 114.046 26.416 90)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (id 3) (at 114.3 25.4 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 62b7ea2e-9015-4288-bde2-716556383b17))
+    (pin "2" (uuid 7b83ad1b-3700-4cb7-9d95-230c97aa72d5))
   )
 
   (symbol (lib_name "DIODE_1") (lib_id "Simulation_SPICE:DIODE") (at 76.2 29.21 90) (unit 1)
@@ -2029,9 +2029,6 @@
     (path "/ca68874f-9d66-4aa6-abbf-7b0be4f0fe2b"
       (reference "#PWR0107") (unit 1) (value "GND") (footprint "")
     )
-    (path "/f0e88ca5-cfe1-4efd-9e98-3add5947a49b"
-      (reference "C1") (unit 1) (value "C_Polarized") (footprint "")
-    )
     (path "/4f09f720-7334-4ff5-aec1-8502d26477ac"
       (reference "C2") (unit 1) (value "C_Polarized") (footprint "")
     )
@@ -2040,6 +2037,9 @@
     )
     (path "/48928ba0-04ba-4d00-a94d-29509724fa2b"
       (reference "C4") (unit 1) (value "C_Polarized") (footprint "")
+    )
+    (path "/f04ce009-5053-44fb-a5cc-2b9080d20ae1"
+      (reference "C?") (unit 1) (value "470u") (footprint "")
     )
     (path "/ff297566-3374-450d-a00f-69cf32543b39"
       (reference "D1") (unit 1) (value "1N4007RLG") (footprint "Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal")
@@ -2062,9 +2062,6 @@
     (path "/2e0d9cfb-4296-42a6-89fe-04f2c5c20f24"
       (reference "J2") (unit 1) (value "OUTPUT") (footprint "")
     )
-    (path "/1b949c5b-9c4c-45e5-a8b0-54be38989e70"
-      (reference "R1") (unit 1) (value "R_US") (footprint "")
-    )
     (path "/0fb0fa52-9f2d-4479-8f9e-abddf31e8ada"
       (reference "R2") (unit 1) (value "R_US") (footprint "")
     )
@@ -2073,6 +2070,9 @@
     )
     (path "/d6774b6f-e542-4da9-b2ea-44710916e64a"
       (reference "R4") (unit 1) (value "100") (footprint "")
+    )
+    (path "/f1f0be2d-ebca-4268-a401-690830272c32"
+      (reference "R?") (unit 1) (value "130") (footprint "")
     )
     (path "/12060b7b-d07f-47b0-ad31-dc5b5031aa34"
       (reference "T1") (unit 1) (value "RSPRO_121-3824") (footprint "Transformer_THT:RSRO_121-3824")
