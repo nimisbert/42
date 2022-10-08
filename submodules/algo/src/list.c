@@ -131,9 +131,9 @@ int dlist_innext(Dlist *l, Dnode *n, const void *data)
     nn->data = (void *)data;
     if(list_size(l) == 0) // empty list
     {
-        nn->next = NULL;
-        nn->prev = NULL;
         l->head = nn;
+        l->head->prev = NULL;
+        l->head->next = NULL;
         l->tail = nn;
     }
     else
