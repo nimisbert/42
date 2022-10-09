@@ -1,9 +1,12 @@
 #ifndef LIST_H
 #define LIST_H
 
+// --- std includes --- //
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 // --- linked list --- //
 

@@ -169,9 +169,9 @@ int dlist_inprev(Dlist *l, Dnode *n, const void *data)
     nn->data = (void *)data;
     if(list_size(l) == 0)
     {
-        nn->next = NULL;
-        nn->prev = NULL;
         l->head = nn;
+        l->head->prev = NULL;
+        l->head->next = NULL;
         l->tail = nn;
     }
     else
@@ -186,6 +186,7 @@ int dlist_inprev(Dlist *l, Dnode *n, const void *data)
         {
             n->prev->next = nn;
         }
+        n->prev = nn;
     }
     l->size++;
     return 0;
@@ -202,24 +203,34 @@ int dlist_remove(Dlist *l, Dnode *n, void **data)
     {
         rn = n;
         *data = n->data;
-        if(n->prev == NULL)
+ 
+        if(n == l->head)
         {
             l->head = n->next;
+            if(l->head == NULL)
+            {
+                l->tail = NULL;
+            }
+            else
+            {
+                n->next->prev = NULL;
+            }
         }
         else
         {
-            n->next->prev = rn->next;
+            n->prev->next = n->next;
+
+            if(n->next == NULL)
+            {
+                l->tail = n->prev;
+            }
+            else
+            {
+                n->next->prev = n->prev;
+            }
         }
-        if(n->next == NULL)
-        {
-            l->tail = n->prev;
-        }
-        else
-        {
-            n->next->prev = rn->prev;
-        }
-        free(rn);
     }
+    free(n);
     l->size--;
     return 0;
 }
