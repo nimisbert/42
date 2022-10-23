@@ -1,11 +1,10 @@
 .PHONY : clean
-.INTERMEDIATE : spiegelUT.o spiegel3.o spiegel4.o spiegel5.o spiegel9.o
+.INTERMEDIATE : 
 
 VPATH =  src inc usr /mingw64/lib /mingw64/include
 
-GPP = g++
 GXX = gcc
-COMPILE_FLAGS = -std=c++20
+COMPILE_FLAGS = -std=gnu99
 INCLUDE_FLAGS = -I ./inc
 
 spiegelUT: spiegelUT.o spiegel3.o spiegel4.o spiegel5.o spiegel9.o spiegel10.o
