@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <list.h>
+#include <dlist.h>
 
 void disp_dlist(Dlist *l);
 
@@ -33,4 +33,8 @@ void main(void)
     void *d0;
     printf("%s : %s\r\n", "[dlist_remove] NULL node", dlist_remove(&DL, NULL, &d0)==-1? "PASS":"FAIL");
     printf("%s : %s\r\n", "[dlist_remove] remove node", !dlist_remove(&DL, list_head(&DL), &d0)? "PASS":"FAIL");
+
+    // --- Circular list UT --- //
+    
+
 }

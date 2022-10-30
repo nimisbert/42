@@ -7,13 +7,13 @@ GXX = gcc
 COMPILE_FLAGS = -std=c++20
 INCLUDE_FLAGS = -I ./inc
 
-listUT: listUT.o list.o
+listUT: listUT.o dlist.o
 	$(GXX) $^ -o $@
 	mv $@ ./build/$@
 	rm *.o
 listUT.o: listUT.c
 	$(GXX) -c $< $(INCLUDE_FLAGS)
-list.o: list.c list.h
+dlist.o: dlist.c dlist.h
 	$(GXX) -c $< $(INCLUDE_FLAGS)
 
 clean:
