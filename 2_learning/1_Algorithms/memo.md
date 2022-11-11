@@ -14,14 +14,14 @@ Datas : <br>
 - [X] SimpleLinkedList
 
 Specs : <br>
-- [X] getSize : return the size, in Nodes, of the list
-- [X] getHead : return the Head of the list
-- [X] getTail : return the Tail of the list
+- [ ] getSize : return the size, in Nodes, of the list
+- [ ] getHead : return the Head of the list
+- [ ] getTail : return the Tail of the list
 - [ ] getNext : return the node next to the parameter node
 - [X] init : initialize the list
 - [ ] destroy : clean the list from heap
 - [ ] insertNext : insert an node next to the parameter node
 - [ ] removeNext : remove the node next to the parameter node
 - [ ] reverse : reverse the SLL
-- [X] isHead : set if parameter node is head, clear otherwise
-- [X] isTail : set if parameter node is tail, clear otherwise
+- [ ] isHead : set if parameter node is head, clear otherwise
+- [ ] isTail : set if parameter node is tail, clear otherwise

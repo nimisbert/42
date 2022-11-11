@@ -1,14 +1,15 @@
 #ifndef SLL_H
 #define SLL_H
 
+#include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
 
-typedef struct _sll_node sllNode_t;
-struct sllNode_t{
+
+typedef struct _sllNode{
     void *data;
-    sllNode_t *next;
-};
+    struct _sllNode *next;
+}sllNode_t;
 
 typedef struct _sll{
     size_t size;
@@ -17,14 +18,9 @@ typedef struct _sll{
 }sll_t;
 
 sll_t   sll_init(void);
+void    sll_clean(void);
 
-size_t  sll_getSize(void *sll);
-
-void    sll_insertNext(void *sll, void *n);
-
-#define sll_isHead(l,n) (n == (l)->head ? 1 : 0)
-#define sll_isTail(l,n) (n == (l)->tail ? 1 : 0)
-#define sll_getHead(l)  ((l)->head)
-#define sll_getTail(l)  ((l)->tail)
+int     sll_insertNext(sll_t *sll, void *d);
+int     sll_removeNext(sll_t *sll, sllNode_t *n);
 
 #endif

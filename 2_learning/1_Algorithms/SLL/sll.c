@@ -10,16 +10,40 @@ sll_t sll_init(void)
     return l;
 }
 
-size_t sll_getSize(void *sll)
+int sll_insertNext(sll_t *sll, void *d)
 {
-    sll_t l = *(sll_t*)sll;
-    return l.size;
+    sllNode_t *nn = (sllNode_t *)malloc(sizeof(sllNode_t));
+    nn->data = d;
+    nn->next = NULL;
+    
+    if ( nn == NULL ) {
+        return -1;
+    }
+
+    if ( sll->size == 0 ) {
+        sll->head = nn;
+        sll->tail = nn;
+    } else {
+        sll->tail->next = nn;
+        sll->tail = nn;
+    }
+
+    sll->size++;
+    return 0;
 }
 
-void sll_insertNext(void *sll, void *n)
+int sll_removeNext(sll_t *sll, sllNode_t *n)
 {
-    sll_t l = *(sll_t*)sll;
-    if(l.size == 0)
-    {
+    sllNode_t *rn;
+
+    if ( n == NULL || n->next == NULL) {
+        return -1;
     }
+
+    rn = n->next;
+    n-> next = n->next->next;
+
+    free(rn);
+    sll->size--;
+    return 0;
 }
