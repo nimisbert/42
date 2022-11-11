@@ -11,8 +11,12 @@ Personnal repository for coding, electronics and exploring science.
 ## 1 - toDo 
 
 - [ ] 0_electronics
+  - [ ] power_supply
+    - [X] schematic
+    - [X] pcb
+    - [ ] verification
 - [X] 1_mechanical
-  - [X] claustra
+  - [X] Claustra
 - [ ] 2_learning
   - [ ] Makefile book
   - [ ] Algorithm book
