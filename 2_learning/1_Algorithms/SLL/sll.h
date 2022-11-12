@@ -20,7 +20,9 @@ typedef struct _sll{
 sll_t   sll_init(void);
 void    sll_clean(void);
 
-int     sll_insertNext(sll_t *sll, void *d);
+int     sll_insertNext(sll_t *sll, sllNode_t *n, void *d);
 int     sll_removeNext(sll_t *sll, sllNode_t *n);
+
+sllNode_t *sll_getNodeFromIndex(sll_t *sll, size_t i);
 
 #endif
