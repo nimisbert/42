@@ -8,6 +8,7 @@ INC = $(inc/*.h)
 OBJ = $(SRC:.c=.o)
 
 ptr: ptr.o
+vector: vector.o
 
 # Pattern matching
 %.o: %.c 

@@ -5,6 +5,7 @@
  */
 
 #include <stdlib.h> 
+#include <string.h>
 
 int f(int **iptr); // pointeur et variables automatique. CHAP2.p13
 int g(int **iptr); // allocation dynamique de memoire. CHAP2.p14
@@ -13,12 +14,29 @@ int array_f(void); // sequence elements homogene par tableau
 int array_g(void); // sequence elements homogene par pointeur
 int array_gg(void);// sequence 2D d elements homogene par pointeur
 
+int swap_1(int a, int b); // echange incorrect acause de passage par valeur
+int swap_2(int *a, int *b); // echange correct par passage par reference
+
+int f1(int tab[]); // passage de tableau
+int f2(int *tab); // passage de pointeur identique a f1
+int f3(int tab[][2]); // passage de tableau de plusieurs dimensions
+
+int swap_3(void *x, void *y, int taille); // exemple transtypage
+
 void main(void)
 {
     int *a;
     f(&a);
     g(&a);
     free(a);
+    int c = 10, d = 20;
+    swap_1(c, d);
+    swap_2(&c, &d);
+    f1(a);
+    f2(a);
+    int b[2][2];
+    f3(b);
+    swap_3(&c, &d, sizeof(int));
 }
 
 int f(int **iptr)
@@ -70,4 +88,50 @@ int array_gg(void)
             a[i][j] = 1;        // meme ligne que $-1
         }
     }
+    return 0;
+}
+
+int swap_1(int x, int y) // passage de parametre par valeur
+{
+    int tmp = x;
+    x = y;
+    y = tmp;
+    return 0; // swap incorrect
+}
+
+int swap_2(int *x, int *y) // passage de parametre par reference
+{
+    int tmp = *x;
+    *x = *y;
+    *y = tmp;
+    return 0; // swap correct
+}
+
+int f1(int tab[]) 
+{
+    tab[0] = 5;
+    return 0;
+}
+
+int f2(int *tab)
+{
+    *tab = 5;
+    return 0;
+}
+
+int f3( int tab[][2]) // deuxieme dimension necessaire pour appliquer arithmetique des pointeurs
+{                    // stockage ligne par ligne du tableau a deux dimensions
+    tab[0][2] = 5;
+}
+
+int swap_3( void *x, void *y, int taille)
+{
+    void *tmp;
+    if((tmp = malloc(taille)) == NULL)
+        return -1;
+    memcpy(tmp,x,taille);
+    memcpy(x,y,taille);
+    memcpy(y,tmp,taille);
+    free(tmp);
+    return 0;
 }
