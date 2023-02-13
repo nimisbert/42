@@ -21,7 +21,7 @@ int f1(int tab[]); // passage de tableau
 int f2(int *tab); // passage de pointeur identique a f1
 int f3(int tab[][2]); // passage de tableau de plusieurs dimensions
 
-int swap_3(void *x, void *y, int taille); // exemple transtypage
+int swap_3(void *x, void *y, int taille); // pointeurs generiques
 
 void main(void)
 {
@@ -134,4 +134,42 @@ int swap_3( void *x, void *y, int taille)
     memcpy(y,tmp,taille);
     free(tmp);
     return 0;
+}
+
+// Q&A
+/*
+int qAnda_q1(void)
+{
+    char *sptr = "abc", *tptr;
+    *tptr = sptr; // erreur de compilation ; dereference de pointeur de char auquel est assigne pointeur de char
+}
+*/
+int qAnda_q2(void)
+{
+    char *sptr = "abc", *tptr;
+    tptr = sptr; // code ok
+}
+
+int qAnda_q3(void)
+{
+    char *sptr = "abc", *tptr;
+    *tptr = *sptr; // erreur execution ; dereference de pointeur non initialiser
+}
+
+int qAnda_q4(void)
+{
+    int *iptr = (int*)10;
+    *iptr=11; // erreur execution ; assignation du pointeur entier iptr a adresse fixe
+}
+/*
+int qAnda_q5(void)
+{
+    int *iptr = 10; // erreur de compilation ; initialisation de pointeur entier avec la valeur d'un entier
+    *iptr = 11;
+}
+*/
+int qAnda_q6(void)
+{
+    int *iptr = (int *)10; // init a adresse fixe dangereux
+    iptr = NULL; // reinit avec NULL qui ce qui est ok
 }
