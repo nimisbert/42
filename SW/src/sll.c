@@ -3,11 +3,11 @@
 
 #include "sll.h"
 
-void list_init( List *list, void (*destroy)(void *data))
+void list_init( List *liste, void (*detruire)(void *donnee))
 {
-    list->size = 0;
-    list->destroy = destroy;
-    list->head = NULL;
-    list->tail = NULL;
+    liste->taille = 0;
+    liste->detruire = detruire;
+    liste->tete = NULL;
+    liste->queue = NULL;
     return;
 }
