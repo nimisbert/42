@@ -1,21 +1,23 @@
 # Phony
 .PHONY: clean
 
+VPATH = src include
+
 # Variables
 CC  = gcc
-SRC = $(./*.c)
-INC = $(./*.h)
-OBJ = $(SRC:.c=.o)
+CF  = -g
+SRC = ./src
+INC = ./include
+OBJ = OBJ = $(SRC:.c=.o)
 
-ptr: ptr.o
-rec: rec.o
-sll: main_sll.o sll.o
+main_ptr.out: main_ptr.o
+main_rec.out: main_rec.o
+main_sll.out: main_sll.o sll.o
 
-# Pattern matching
-# not using Makefile buitlin, pattern matching, for exercice puproses
+%.out: %.o
+	$(CC) $(CF) -I $(INC) $^ -o $@
 %.o: %.c %.h
-	$(CC) -I $(INC) -o $@ -c $^ $(CF)
-%.o: %.c
-	$(CC) -I $(INC) -o $@ -c $< $(CF)
+	$(CC) $(CF) -I$(INC) -c $@ $^
+
 clean: 
-	rm -rf *.o *.exe
+	rm -rf *.o *.exe *.out *.gch
