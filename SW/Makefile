@@ -15,7 +15,7 @@ main_rec.out: main_rec.o
 main_sll.out: main_sll.o sll.o
 
 %.out: %.o
-	$(CC) $(CF) -I $(INC) $^ -o $@
+	$(CC) $(CF) -I$(INC) $^ -o $@
 %.o: %.c %.h
 	$(CC) $(CF) -I$(INC) -c $@ $^
 
