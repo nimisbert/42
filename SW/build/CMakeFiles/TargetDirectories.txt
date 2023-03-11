@@ -1,0 +1,7 @@
+/media/nm/DATA/workspace/42/SW/build/CMakeFiles/calgo.dir
+/media/nm/DATA/workspace/42/SW/build/CMakeFiles/main_ptr.dir
+/media/nm/DATA/workspace/42/SW/build/CMakeFiles/main_rec.dir
+/media/nm/DATA/workspace/42/SW/build/CMakeFiles/main_sll.dir
+/media/nm/DATA/workspace/42/SW/build/CMakeFiles/main_cll.dir
+/media/nm/DATA/workspace/42/SW/build/CMakeFiles/edit_cache.dir
+/media/nm/DATA/workspace/42/SW/build/CMakeFiles/rebuild_cache.dir
