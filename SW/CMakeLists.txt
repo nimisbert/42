@@ -17,6 +17,7 @@ add_library(
     src/dll.c
     src/cll.c
     src/stack.c
+    src/queue.c
 )
 
 #Chapitre 2 : Manipulation de pointeur
@@ -41,3 +42,10 @@ add_executable(main_stack examples/main_stack.c)
 target_link_libraries(main_stack calgo)
 add_dependencies(main_stack calgo)
 ## Files (FIFO)
+add_executable(main_queue examples/main_queue.c)
+target_link_libraries(main_queue calgo)
+add_dependencies(main_queue calgo)
+## Exemple Files : Event Queue
+add_executable(main_events examples/main_events.c)
+target_link_libraries(main_events calgo)
+add_dependencies(main_events calgo)

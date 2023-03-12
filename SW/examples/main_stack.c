@@ -9,6 +9,7 @@ void main(void)
 {
 // Figure 6.1 page 99
     Stack ma_uint8_pile;
+    stack_init( &ma_uint8_pile, free);
 // 6.1.(1) 2 elements empiles 
     stack_uint8_push( &ma_uint8_pile, 5 );
     stack_uint8_push( &ma_uint8_pile, 3 );
