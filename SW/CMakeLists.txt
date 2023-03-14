@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.22.1)
 
 # TODO :
+# Copyright in all books sources
 # Chapitre 5 main_cll a debug
 
 project( algorithm_in_C )
@@ -18,6 +19,7 @@ add_library(
     src/cll.c
     src/stack.c
     src/queue.c
+    src/set.c
 )
 
 #Chapitre 2 : Manipulation de pointeur
@@ -49,3 +51,9 @@ add_dependencies(main_queue calgo)
 add_executable(main_events examples/main_events.c)
 target_link_libraries(main_events calgo)
 add_dependencies(main_events calgo)
+
+#Chapitre 7 : 
+## Set
+add_executable(main_set examples/main_set.c)
+target_link_libraries(main_set calgo)
+add_dependencies(main_set calgo)
