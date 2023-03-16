@@ -1,3 +1,8 @@
+/* OREILLY : Mastering algorithm with C, 2004
+ * Author  : Kyle Loudon
+ * Notes   :
+ * Recopie personelle des codes du livre lors de sa lecture
+ */
 #ifndef QUEUE_H
 #define QUEUE_H
 

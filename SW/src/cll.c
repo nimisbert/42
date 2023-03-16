@@ -1,3 +1,8 @@
+/* OREILLY : Mastering algorithm with C, 2004
+ * Author  : Kyle Loudon
+ * Notes   :
+ * Recopie personelle des codes du livre lors de sa lecture
+ */
 #include "cll.h"
 
 void clist_init( CList *liste, void (*detruire)( void *donnee))

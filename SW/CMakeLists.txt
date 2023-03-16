@@ -1,8 +1,13 @@
+# 
+# Author : Nicolas Misbert
+# Notes  :
+# CMakeLists.txt to compile code from the book and some examples
+
 cmake_minimum_required(VERSION 3.22.1)
 
 # TODO :
-# Copyright in all books sources
 # Chapitre 5 main_cll a debug
+# Chapitre 7 a finir, bug sur insert avec KSet
 
 project( algorithm_in_C )
 
@@ -53,7 +58,7 @@ target_link_libraries(main_events calgo)
 add_dependencies(main_events calgo)
 
 #Chapitre 7 : 
-## Set
+## Sets
 add_executable(main_set examples/main_set.c)
 target_link_libraries(main_set calgo)
 add_dependencies(main_set calgo)

@@ -1,9 +1,8 @@
-/* OREILLY : Algorithm in C, 2002
- * Author : Kyle Loudon
- * Notes :
- * Recopie personel des codes du livre lors de sa lecture
+/* OREILLY : Mastering algorithm with C, 2004
+ * Author  : Kyle Loudon
+ * Notes   :
+ * Recopie personelle des codes du livre lors de sa lecture
  */
-
 #include <stdlib.h> 
 #include <string.h>
 

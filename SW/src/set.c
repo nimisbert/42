@@ -1,3 +1,8 @@
+/* OREILLY : Mastering algorithm with C, 2004
+ * Author  : Kyle Loudon
+ * Notes   :
+ * Recopie personelle des codes du livre lors de sa lecture
+ */
 #include "set.h"
 
 void set_init( Set *ens, int (*corresp)(const void *cle1, const void *cle2), void (*detruire)(void *donnee))

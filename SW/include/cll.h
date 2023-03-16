@@ -1,3 +1,8 @@
+/* OREILLY : Mastering algorithm with C, 2004
+ * Author  : Kyle Loudon
+ * Notes   :
+ * Recopie personelle des codes du livre lors de sa lecture
+ */
 #ifndef CLIST_H
 #define CLIST_H
 
