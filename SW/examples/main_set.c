@@ -13,8 +13,8 @@ typedef struct KSet_ {
 } KSet;
 
 // KSet, added layer... so weird
-int Kset_init        ( KSet *Kens, uint8_t Kkey);   // ToTest
-int Kset_destroy     ( KSet *Kens);                 // ToDo
+int kset_init        ( KSet *Kens, uint8_t Kkey);   // ToTest
+int kset_destroy     ( KSet *Kens);                 // ToDo
 
 int set_char_insert  ( Set *ens, char  c);
 int set_char_print   ( Set *ens);
@@ -23,117 +23,44 @@ int set_cover        ( Set *elements, Set *sous_ens, Set *couverture);
 
 void main(void)
 {
-// Probleme exemple page 133
-    Set S, P, C;
-    KSet A1, A2, A3, A4, A5, A6, A7;
-    set_init( &S , set_char_corresp, free);
-    set_init( &P , set_char_corresp, free);
-    set_init( &C , set_char_corresp, free);
-    Kset_init( &A1, 1);
-    Kset_init( &A2, 2);
-    Kset_init( &A3, 3);
-    Kset_init( &A4, 4);
-    Kset_init( &A5, 5);
-    Kset_init( &A6, 6);
-    Kset_init( &A7, 7);
+    Set S, C, P;
+    KSet A[7];
+    int8_t ret;
+    set_init( &S, set_char_corresp, free);
+    set_init( &C, set_char_corresp, free);
+    set_init( &P, set_char_corresp, free);
+    for( int i = 0; i < 7; i++) {
+        ret = kset_init( &A[i], i);
+    }
+
     
-    for ( char iter = 'a'; iter <'m'; iter++) {
-        set_char_insert( &S,  iter);
-        switch ( iter ) {
-            case 'a':
-                set_char_insert( &A1.ens, iter);
-                set_char_insert( &A4.ens, iter);
-                break;
-            case 'b':
-                set_char_insert( &A1.ens, iter);
-                set_char_insert( &A5.ens, iter);
-                break;
-            case 'c':
-                set_char_insert( &A1.ens, iter);
-                set_char_insert( &A6.ens, iter);
-                break;
-            case 'd':
-                set_char_insert( &A1.ens, iter);
-                set_char_insert( &A6.ens, iter);
-                break;
-            case 'e':
-                set_char_insert( &A2.ens, iter);
-                set_char_insert( &A4.ens, iter);
-                break;
-            case 'f':
-                set_char_insert( &A2.ens, iter);
-                set_char_insert( &A5.ens, iter);
-                break;
-            case 'g':
-                set_char_insert( &A2.ens, iter);
-                set_char_insert( &A5.ens, iter);
-                set_char_insert( &A6.ens, iter);
-                break;
-            case 'h':
-                set_char_insert( &A2.ens, iter);
-                set_char_insert( &A6.ens, iter);
-                break;
-            case 'i':
-                set_char_insert( &A2.ens, iter);
-                break;
-            case 'j':
-                set_char_insert( &A3.ens, iter);
-                break;
-            case 'k':
-                set_char_insert( &A3.ens, iter);
-                set_char_insert( &A6.ens, iter);
-                break;
-            case 'l':
-                set_char_insert( &A3.ens, iter);
-                set_char_insert( &A6.ens, iter);
-                set_char_insert( &A7.ens, iter);
-                break;
-        }
-    }
 
-    printf("Probleme : \r\n");
-    printf("S  : ");set_char_print( &S);
-    printf("P  : { ");
-    for( int i = 1; i < 8; i++) {
-        i == 7 ? printf("A%d }\r\n",i) : printf("A%d, ",i);
+    for( int i = 0; i < 7; i++) {
+        kset_destroy( &A[i]);
     }
-    printf("A1 : ");set_char_print( &A1.ens);
-    printf("A2 : ");set_char_print( &A2.ens);
-    printf("A3 : ");set_char_print( &A3.ens);
-    printf("A4 : ");set_char_print( &A4.ens);
-    printf("A5 : ");set_char_print( &A5.ens);
-    printf("A6 : ");set_char_print( &A6.ens);
-    printf("A7 : ");set_char_print( &A7.ens);
-    printf("Solution reference :\r\n");
-    printf("C  : { A1, A2, A3 }\r\n");
-    printf("Solution algorithm :\r\n");
-//   set_cover( &S, &P, &C);
-
-// Clean
     set_destroy( &S);
+    set_destroy( &C);
     set_destroy( &P);
-    set_destroy( &A1.ens);
-    set_destroy( &A2.ens);
-    set_destroy( &A3.ens);
-    set_destroy( &A4.ens);
-    set_destroy( &A5.ens);
-    set_destroy( &A6.ens);
-    set_destroy( &A7.ens);
     return;
 }
 
-int Kset_init( KSet *Kens, uint8_t Kkey)
+int kset_init( KSet *Kens, uint8_t Kkey)
 {
-    uint8_t *Kcle; *Kcle = Kkey;
-    if ( (Kens->cle = (uint8_t*)malloc(sizeof(uint8_t))) == NULL) {
+    uint8_t *Kcle;
+    if ( (Kcle = (uint8_t*)malloc(sizeof(uint8_t))) == NULL) {
         return -1;
     }
-    Kens->cle = (void *)Kcle;
+    *Kcle = Kkey;
+    Kens->cle = (uint8_t*)Kcle; 
     set_init( &Kens->ens, set_char_corresp, free);
     return 0;
 }
 
-int Kset_destroy( KSet *Kens);
+int kset_destroy( KSet *Kens)
+{
+    free( Kens->cle );
+    set_destroy( &Kens->ens );
+}
 
 int set_char_insert( Set *ens, char c)
 {
@@ -220,5 +147,5 @@ int set_cover( Set *elements, Set *sous_ens, Set *couverture)
 int set_char_corresp( const void *cle1, const void *cle2)
 {
     char *key1 = (char*)cle1, *key2 = (char*)cle2;
-    *key1 == *key2 ? 1 : 0;
+    return *key1 == *key2 ? 1 : 0;
 }
