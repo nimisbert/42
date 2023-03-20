@@ -26,8 +26,9 @@ int set_remove( Set *ens, void **donnee)
     precedent = NULL;
     for( elt = list_head(ens) ; elt != NULL ; elt = list_next(elt) ) {
         if( ens->corresp( *donnee, list_data(elt))) {
-            precedent = elt;
+            break;
         }
+        precedent = elt;
     }
     if( elt == NULL ) {
         return -1;

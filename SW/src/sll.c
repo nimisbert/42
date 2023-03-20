@@ -75,7 +75,7 @@ int list_rem_next(List *liste, ListElmt *element, void **donnee)
         element->suivant = element->suivant->suivant;
 
         if( element->suivant == NULL ) {
-            liste->tete = element;
+            liste->queue = element;
         }
     }
     free(ancien_element);

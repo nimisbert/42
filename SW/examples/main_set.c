@@ -12,9 +12,9 @@ typedef struct KSet_ {
     Set ens;
 } KSet;
 
-// KSet, added layer... so weird
 int kset_init        ( KSet *Kens, uint8_t Kkey); 
-int kset_destroy     ( KSet *Kens);                
+int kset_destroy     ( KSet *Kens);      
+int set_kset_corresp ( const void *cle1, const void *cle2);
 int set_kset_insert  ( Set *ens, KSet *kens);
 
 // Set of char 
@@ -23,6 +23,7 @@ int set_char_corresp ( const void *cle1, const void *cle2);
 
 // Cover problem
 int set_problem_print( Set *S, Set *P);
+int set_char_print   ( Set *ens);
 int set_cover        ( Set *elements, Set *sous_ens, Set *couverture); 
 
 void main(void)
@@ -32,7 +33,7 @@ void main(void)
     KSet A[7];
     int8_t ret = 0;
     set_init( &S, set_char_corresp, free);
-    set_init( &C, set_char_corresp, free);
+    //set_init( &C, set_char_corresp, free);
     set_init( &P, set_char_corresp, free);
     for( int i = 0; i < 7; i++) {
         ret = kset_init( &A[i], i);
@@ -99,6 +100,21 @@ void main(void)
     }
 // Display problem
     set_problem_print( &S, &P);
+// Display reference solution 
+    printf("C (reference solution) :\r\n{ A1, A2, A3 }\r\n");
+// Algorithm
+    ret = set_cover( &S, &P, &C);
+    printf("Solver returned : %d\r\n", ret);
+// Print solution
+    printf("C (solver solution) : \r\n{ ");
+    ListElmt *kset_iter = NULL;
+    uint8_t *kset_donnee = NULL;
+    for( kset_iter = list_head(&C); kset_iter != NULL; kset_iter = list_next( kset_iter )) {
+        kset_donnee = (uint8_t*)((KSet*)kset_iter->donnee)->cle;
+        printf(" A%d ",*kset_donnee);
+
+    }
+    printf("}\r\n");
 
 // Clean
     for( int i = 0; i < 7; i++) {
@@ -186,21 +202,29 @@ int set_problem_print( Set *S, Set *P)
 
 int set_cover( Set *elements, Set *sous_ens, Set *couverture)
 {
-// Set *elements   = S
-// Set *sous_ens   = P
-// Set *couverture = C
+// Set *elements   = ensemble des elements (S)
+// Set *sous_ens   = ensemble des sous ensembles (P : { Ai })
+// Set *couverture = ensemble des sous ensembles couvrant les elements (C)
     Set intersection;
-    KSet *s_ens;
-    ListElmt *elt, *elt_max;
-    void *donnee;
-    int taille_max;
-    set_init( &intersection, sous_ens->corresp, NULL);
+    KSet *s_ens = NULL;
+    ListElmt *elt = NULL, *elt_max = NULL;
+    void *donnee = NULL;
+    int taille_max = 0;
+    set_init( couverture, sous_ens->corresp, NULL);
+
+// Tant que l ensemble des elements (S) n est pas vide ou l'ensemble des sous ensembles (P) n est pas vide :
     while( (set_size(elements) > 0) && (set_size(sous_ens) > 0) ) {
         taille_max = 0;
+
+// Pour chaque Sous-ensemble Ai de l ensemble P :
         for( elt = list_head(sous_ens); elt != NULL; elt = list_next(elt) ) {
+
+// Echec si un sous-ensemble Ai de P ne couvre pas un elements de S :
             if( set_intersection( &intersection, &((KSet*)list_data(elt))->ens, elements) != 0 ) {
                 return -1;
             }
+
+// Filtrage du Ai de P couvrant le plus d elements de S (elt_max de taille taille_max)
             if( set_size(&intersection) > taille_max ) {
                 elt_max = elt;
                 taille_max = set_size(&intersection);
@@ -208,31 +232,37 @@ int set_cover( Set *elements, Set *sous_ens, Set *couverture)
             set_destroy(&intersection);
         }
 
+// Si taille_max egale 0 la couverture est impossible :
         if( taille_max == 0 ) {
             return 1;
         }
 
+// Insertion de elt_max formant une partie de la solution dans C :
         s_ens = (KSet *)list_data(elt_max);
         if( set_insert(couverture, s_ens) != 0) {
             return -1;
         }
 
+// Retire a S chaque elements couvert par le sous ensemble elt_max :
         for( elt = list_head( &((KSet *)list_data(elt_max))->ens ) ; elt != NULL; elt = list_next(elt) ) {
             donnee = list_data(elt);
-            if( set_remove(elements, (void**)&donnee) == 0 && elements->detruire != NULL ) {
+            if( (set_remove(elements, (void**)&donnee) == 0) && (elements->detruire != NULL) ) {
                 elements->detruire(donnee);
             }
         }
 
+// Retire le sous-ensemble elt_max de P : 
         if( set_remove(sous_ens, (void **)&s_ens) != 0 ) {
             return -1;
         }
     }
 
+// Si il reste des elements dans S alors erreur :
     if( set_size(elements) > 0 ) {
         return -1;
     }
 
+// Sinon une solution est proposee
     return 0;
 }
 
@@ -240,4 +270,26 @@ int set_char_corresp( const void *cle1, const void *cle2)
 {
     char *key1 = (char*)cle1, *key2 = (char*)cle2;
     return *key1 == *key2 ? 1 : 0;
+}
+
+int set_kset_corresp ( const void *cle1, const void *cle2)
+{
+    uint8_t *key1 = (uint8_t*)(&((KSet*)cle1)->cle);
+    uint8_t *key2 = (uint8_t*)(&((KSet*)cle2)->cle);
+    return *key1 == *key2 ? 1 : 0;
+}
+
+int set_char_print( Set *ens) 
+{
+    ListElmt *elt;
+    char *donnee;
+    printf("{ ");
+    for( elt = list_head(ens); elt != NULL; elt = list_next(elt)) {
+        donnee = (char*)list_data(elt);
+        if( elt->suivant == NULL ) {
+            printf("%c }\r\n",*donnee);
+        } else {
+            printf("%c, ",*donnee);
+        }
+    }
 }
