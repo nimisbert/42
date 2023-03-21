@@ -25,6 +25,7 @@ add_library(
     src/stack.c
     src/queue.c
     src/set.c
+    src/chtbl.c
 )
 
 #Chapitre 2 : Manipulation de pointeur
@@ -62,3 +63,6 @@ add_dependencies(main_events calgo)
 add_executable(main_set examples/main_set.c)
 target_link_libraries(main_set calgo)
 add_dependencies(main_set calgo)
+
+#Chapitre 8 :
+## Tables de hachages chainees
