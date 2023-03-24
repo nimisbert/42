@@ -7,6 +7,7 @@
 #define CHTBL_H
 
 #include <stdlib.h>
+#include <string.h>
 #include "sll.h"
 
 typedef struct CHTbl_ {
@@ -18,13 +19,13 @@ typedef struct CHTbl_ {
     List *table;
 } CHTbl;
 
-void chtbl_init( CHTbl *htab, 
+int chtbl_init( CHTbl *htab, 
                 int  conteneurs,
                 int  (*h) (const void *cle),
                 int  (*corresp) (const void *cle1, const void *cle2),
                 void (*detruire)(void *donnee)
                );
-int chtbl_destroy( CHTbl *htab);
+void chtbl_destroy( CHTbl *htab);
 
 int chtbl_insert( CHTbl *htab, const void *donnee);
 int chtbl_remove( CHTbl *htab, void **donnee);

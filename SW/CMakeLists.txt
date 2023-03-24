@@ -66,3 +66,6 @@ add_dependencies(main_set calgo)
 
 #Chapitre 8 :
 ## Tables de hachages chainees
+add_executable(main_chtbl examples/main_chtbl.c)
+target_link_libraries(main_chtbl calgo)
+add_dependencies(main_chtbl calgo)
