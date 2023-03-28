@@ -48,3 +48,31 @@ fact n = aux n 1
         aux n acc
          | n <= 1 = acc
          | otherwise = aux (n-1) (n*acc)
+
+-- currying
+-- f :: a -> b -> c -> d
+-- f :: a -> (b -> (c -> d))
+
+myAdd0 x y = x + y
+myAdd1 x = (\y -> x + y)
+myAdd2 = (\x -> (\y -> x + y))
+
+-- partial function application
+
+doubleList = map (\x -> 2*x)
+
+-- composition
+
+descSort0 = reverse . sort
+descSort1 = (\x -> reverse (sort x))
+descSort2 x = reverse (sort x)
+
+map2D :: (a -> b) -> [[a]] -> [[b]]
+map2D = map . map
+
+-- $ :: (a -> b) -> a -> b
+
+
+
+
+
