@@ -41,5 +41,5 @@ tree =
 -- s
 revl :: [a] -> [a] 
 revl = foldl (\acc x -> x : acc) []
---revr :: [a] -> [a]
---revr = foldr (\x acc -> acc ++ x) []
+revr :: [a] -> [a]
+revr = foldr (\x acc -> acc ++ [x]) []
