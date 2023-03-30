@@ -1,6 +1,6 @@
 # 42
 
-Repo about stuff I learn about, or do, or try to do... or try to learn about.
+Answers to the questions of my universe and anything...
 
 ## HW
 
