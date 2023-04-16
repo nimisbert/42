@@ -1,13 +1,13 @@
-# 
 # Author : Nicolas Misbert
 # Notes  :
 # CMakeLists.txt to compile code from the book and some examples
 
 cmake_minimum_required(VERSION 3.22.1)
 
-# TODO :
+# ToDo :
 # Chapitre 5 main_cll a debug
-# Chapitre 7 a finir, bug sur insert avec KSet
+# Chapitre 8 chtbl example lexer
+# Chapitre 8 ohtbl
 
 project( algorithm_in_C )
 
@@ -26,6 +26,7 @@ add_library(
     src/queue.c
     src/set.c
     src/chtbl.c
+    src/bitree.c
 )
 
 #Chapitre 2 : Manipulation de pointeur
@@ -69,3 +70,9 @@ add_dependencies(main_set calgo)
 add_executable(main_chtbl examples/main_chtbl.c)
 target_link_libraries(main_chtbl calgo)
 add_dependencies(main_chtbl calgo)
+
+#Chapitre 9 : 
+## Arbres binaires
+add_executable(main_bitree examples/main_bitree.c)
+target_link_libraries( main_bitree calgo)
+add_dependencies( main_bitree calgo)
