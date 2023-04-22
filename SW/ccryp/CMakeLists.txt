@@ -12,8 +12,13 @@ file( GLOB_RECURSE JollietInnovation_C_EXAMPLE examples/*.c)
 add_library(
     ccrypt SHARED
     src/polybius.c
+    src/scytale.c
 )
 
 add_executable(caesar_main examples/caesar_main.c)
 target_link_libraries( caesar_main ccrypt)
 add_dependencies( caesar_main ccrypt)
+
+add_executable(scytale_main examples/scytale_main.c)
+target_link_libraries( scytale_main ccrypt)
+add_dependencies( scytale_main ccrypt)

@@ -16,7 +16,8 @@ Based on Michel Dubois' [thesis](https://hal.science/tel-01799562v1).
 
 ## Sources 
 
-* Scytale, Polybius Square, [Michel Dubois (2017)](https://hal.science/tel-01799562v1)
+* [Polybius Square, Michel Dubois (2017)](https://hal.science/tel-01799562v1)
+* [Scytale](https://fr.wikipedia.org/wiki/Scytale)
 * [AES FIPS 197, N.I.S.T. (2001)](https://csrc.nist.gov/publications/detail/fips/197/final)
 * [Galois Field Multiplication, Dr. Lawlor](https://www.cs.uaf.edu/2015/spring/cs463/lecture/03_23_AES.html)
 
@@ -24,7 +25,7 @@ Based on Michel Dubois' [thesis](https://hal.science/tel-01799562v1).
 
 | Algorithm        | Date   | Done   | File                                     |
 |:-----------------|-------:|:------:|:----------------------------------------:|
-| Scytale          | - 404  | no     ||
+| Scytale          | - 404  | yes    | [scytale.c](./src/scytale.c)             |
 | Polybius Square  | - 150  | yes    | [polybius.c](./src/polybius.c)           |
 | Caesar           | - 128  | yes    | [caesar_main.c](./examples/caesar_main.c)|
 | AES              |  2001  | no     ||
