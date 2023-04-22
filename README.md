@@ -6,18 +6,16 @@ Answers to the questions of my universe and anything...
 
 The HW folder contains electronic Hardware schematics and routings, using Kicad.
 
-| folder       | description                                                                         |
-|:------------:|:-----------------------------------------------------------------------------------:|
-| power_supply | is a mediocre power supply converting 230V AC to 10-15V DC, it badly needs a rework |
+| folder                             | description                                                     |
+|:----------------------------------:|:---------------------------------------------------------------:|
+| [power_supply](./HW/power_supply/) | is a bad power supply from 230V AC to 10-15V DC, needs a rework |
 
 ## SW 
 
-The SW folder contains codes in different languages.
-For now they are a bit jumbled together... but there are two main topics for now.
+The SW folder contains software of different languages tackling topics of scientific fields.
 
-| folder       | description                                                                         |
-|:------------:|:-----------------------------------------------------------------------------------:|
-| hs           | folder where I learn functional programming with Haskell                            |
-| the rest     | folders where I learn algorithms and data structures in C                           |
-
-When I will have learnt enough, I will create subfolders containing projects.
+| folder                 | description    |
+|:----------------------:|:---------------|
+| [calgo](./SW/calgo/)   | Data-structures and algorithm in C by [Kyle Loudon](https://everythingcomputerscience.com/books/Mastering-Algorithms-with-C-Loudon.pdf) |
+| [ccryp](./SW/ccryp/)   | Cryptography algorithm in C |
+| [hgreen](./SW/hgreen/) | Ecological modeling in Haskell |

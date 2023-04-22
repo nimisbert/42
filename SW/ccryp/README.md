@@ -26,5 +26,5 @@ Based on Michel Dubois' [thesis](https://hal.science/tel-01799562v1).
 |:-----------------|-------:|:------:|:----------------------------------------:|
 | Scytale          | - 404  | no     ||
 | Polybius Square  | - 150  | yes    | [polybius.c](./src/polybius.c)           |
-| Caesar           | - 128  | no     | [caesar_main.c](./examples/caesar_main.c)|
+| Caesar           | - 128  | yes    | [caesar_main.c](./examples/caesar_main.c)|
 | AES              |  2001  | no     ||
