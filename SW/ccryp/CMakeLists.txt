@@ -24,11 +24,6 @@ add_executable(scytale_main examples/scytale_main.c)
 target_link_libraries( scytale_main ccrypt)
 add_dependencies( scytale_main ccrypt)
 
-add_executable(aes_nist_appendixA examples/aes_nist_appendixA.c)
-target_link_libraries( aes_nist_appendixA ccrypt)
-add_dependencies( aes_nist_appendixA ccrypt)
-
-
 add_executable(aes_nist_appendixB examples/aes_nist_appendixB.c)
 target_link_libraries( aes_nist_appendixB ccrypt)
 add_dependencies( aes_nist_appendixB ccrypt)
