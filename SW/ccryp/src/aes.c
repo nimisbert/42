@@ -159,7 +159,7 @@ void AES_addRoundKey( uint8_t s[4][Nb], uint32_t w[Nb], int round)
 }
 
 // Section 5.2 : Key Expansion
-void AES_keyExpansion( const uint8_t key[4*Nk], uint32_t w[Nb*(Nr+1)])
+void AES_keyExpansion( const uint8_t key[4*Nk], uint32_t w[(Nb*(Nr+1)) + (Nk % 4) ])
 {
     int i = 0;
     uint32_t temp = 0x00000000;
@@ -168,17 +168,19 @@ void AES_keyExpansion( const uint8_t key[4*Nk], uint32_t w[Nb*(Nr+1)])
                ((key[4*i+1] <<16) & 0x00FF0000) + 
                ((key[4*i+2] << 8) & 0x0000FF00) + 
                ((key[4*i+3] << 0) & 0x000000FF); 
-        i = i+1;
+        i = i + 1;
     }
     i = Nk;
-    while( i < Nb * (Nr + 1)) {
+    while( i < (Nb*(Nr+1)) + (Nk % 4) ) {
         temp = w[i-1];
         if( i % Nk == 0) {
             temp = AES_subWord( AES_rotWord( temp )) ^ AES_rcon( i / Nk ); 
         } else if ( Nk > 6 && i % Nk == 4) {
             temp = AES_subWord( temp );    
         }
+
         w[i] = w[i-Nk] ^ temp;
+
         i = i + 1;
     }
     return;
