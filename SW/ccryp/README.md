@@ -32,5 +32,5 @@ Based on Michel Dubois' [thesis](https://hal.science/tel-01799562v1).
 
 ## ToDo 
 
-Multiplication and Exponentiation with AES_gf256Mul (Russian Peasant Algorithm) and AES_gf256Pow are quite meh... 
+Multiplication and Exponent with AES_gf256Mul (Russian Peasant Algorithm) and AES_gf256Pow are quite meh... 
 For $GF(2^m)$ multiplication is $o(m)$ and exponent is $o(m^2)$. An LUT based implementation should be done.

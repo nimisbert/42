@@ -18,6 +18,6 @@ int main( void )
 //
     printf("Message clair : %s\r\n", clearText);    // Alice
     printf("Message codee : %s\r\n", cipherText);   // Alice To Bob
-    printf("Message decod : %s\r\n", decodedText);  // Alice To Bob
+    printf("Message decod : %s\r\n", decodedText);  // Bob
     return 0;
 }
