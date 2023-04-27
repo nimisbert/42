@@ -5,8 +5,8 @@
 
 // Parameters 
 #define Nb 4
-#define Nk 4
-#define Nr 10
+#define Nk 8
+#define Nr 14
 
 // Section 5.1 : Cipher
 void     E_AES( const uint8_t P[4*Nb], uint8_t C[4*Nb], const uint8_t K[4*Nk] );

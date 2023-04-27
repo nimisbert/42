@@ -31,3 +31,7 @@ add_dependencies( aes_nist_appendixA ccrypt)
 add_executable(aes_nist_appendixB examples/aes_nist_appendixB.c)
 target_link_libraries( aes_nist_appendixB ccrypt)
 add_dependencies( aes_nist_appendixB ccrypt)
+
+add_executable(aes_nist_appendixC examples/aes_nist_appendixC.c)
+target_link_libraries(aes_nist_appendixC ccrypt)
+add_dependencies( aes_nist_appendixC ccrypt)
