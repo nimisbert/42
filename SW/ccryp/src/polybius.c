@@ -6,7 +6,7 @@ void E_polybius( const uint8_t *P, uint8_t *C, int l, uint8_t K)
         C[i] = polybius_subBytes( P[i], K);
     }
     return;
-}
+} 
 
 void D_polybius( const uint8_t *C, uint8_t *P, int l, uint8_t K)
 {
@@ -16,12 +16,12 @@ void D_polybius( const uint8_t *C, uint8_t *P, int l, uint8_t K)
     return;
 }
 
-uint8_t polybius_subBytes( uint8_t p, uint8_t k)
+int polybius_subBytes( int p, int k)
 {
-    return (p + k) % 26;
+    return ((p + k) % 26);
 }
 
-uint8_t polybius_invSubBytes( uint8_t c, uint8_t k)
+int polybius_invSubBytes( int c, int k)
 {
-    return (c - k) % 26;
+    return ((c - k) % 26);
 }

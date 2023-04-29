@@ -3,9 +3,14 @@
 
 #include <stdint.h>
 
-void E_vigenere( uint8_t *P, uint8_t *C, int l, uint8_t *K, int nk);
-void D_vigenere( uint8_t *P, uint8_t *C, int l, uint8_t *K, int nk);
+#define VIGENERE_Nb 41
+#define VIGENERE_Nk 7
 
-uint8_t vigenere_subBytes( uint8_t b, uint8_t k);
+uint8_t (*substitution_function)( uint8_t, uint8_t);
 
+void E_vigenere( const uint8_t P[VIGENERE_Nb], uint8_t C[VIGENERE_Nb], uint8_t K[VIGENERE_Nk]);
+void D_vigenere( const uint8_t C[VIGENERE_Nb], uint8_t P[VIGENERE_Nb], uint8_t K[VIGENERE_Nk]);
+
+uint8_t vigenere_subBytes( uint8_t p, uint8_t k);
+uint8_t vigenere_invSubBytes( uint8_t p, uint8_t k);
 #endif

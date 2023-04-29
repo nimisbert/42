@@ -29,7 +29,7 @@ Based on Michel Dubois' [thesis](https://hal.science/tel-01799562v1).
 | Scytale          | - 404  | yes    | [scytale.c](./src/scytale.c)             |
 | Polybius Square  | - 150  | yes    | [polybius.c](./src/polybius.c)           |
 | Caesar           | - 128  | yes    | [caesar_main.c](./examples/caesar_main.c)|
-| Vigenère         |  1586  | no     ||
+| Vigenère         |  1586  | yes    | [vigenere.c](./src/vigenere.c)           |
 | RSA              |  1978  | no     ||
 | AES              |  2001  | yes    | [aes.c](./src/aes.c)                     |
 
