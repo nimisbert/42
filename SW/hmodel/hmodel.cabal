@@ -4,11 +4,11 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 
-name:           hgreen
+name:           hmodel
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/nimisbert/hgreen#readme>
-homepage:       https://github.com/nimisbert/hgreen#readme
-bug-reports:    https://github.com/nimisbert/hgreen/issues
+description:    Please see the README on GitHub at <https://github.com/nimisbert/hmodel#readme>
+homepage:       https://github.com/nimisbert/hmodel#readme
+bug-reports:    https://github.com/nimisbert/hmodel/issues
 author:         n m
 maintainer:     n.misbert@yahoo.fr
 copyright:      2023 n m
@@ -21,13 +21,13 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/nimisbert/hgreen
+  location: https://github.com/nimisbert/hmodel
 
 library
   exposed-modules:
       Lib
   other-modules:
-      Paths_hgreen
+      Paths_hmodel
   hs-source-dirs:
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
@@ -36,29 +36,29 @@ library
     , gloss
   default-language: Haskell2010
 
-executable hgreen-exe
+executable hmodel-exe
   main-is: Main.hs
   other-modules:
-      Paths_hgreen
+      Paths_hmodel
   hs-source-dirs:
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , gloss
-    , hgreen
+    , hmodel
   default-language: Haskell2010
 
-test-suite hgreen-test
+test-suite hmodel-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Paths_hgreen
+      Paths_hmodel
   hs-source-dirs:
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , gloss
-    , hgreen
+    , hmodel
   default-language: Haskell2010

@@ -1,4 +1,4 @@
-# Changelog for `hgreen`
+# Changelog for `hmodel`
 
 All notable changes to this project will be documented in this file.
 

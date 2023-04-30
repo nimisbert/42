@@ -1,6 +1,6 @@
-name:                hgreen
+name:                hmodel
 version:             0.1.0.0
-github:              "nimisbert/hgreen"
+github:              "nimisbert/hmodel"
 license:             BSD3
 author:              "n m"
 maintainer:          "n.misbert@yahoo.fr"
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/nimisbert/hgreen#readme>
+description:         Please see the README on GitHub at <https://github.com/nimisbert/hmodel#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -38,7 +38,7 @@ library:
   source-dirs: src
 
 executables:
-  hgreen-exe:
+  hmodel-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -46,10 +46,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - hgreen
+    - hmodel
 
 tests:
-  hgreen-test:
+  hmodel-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -57,4 +57,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - hgreen
+    - hmodel
