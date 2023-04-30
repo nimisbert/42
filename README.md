@@ -18,4 +18,4 @@ The SW folder contains software of different languages tackling topics of scient
 |:----------------------:|:---------------|
 | [calgo](./SW/calgo/)   | Data-structures and algorithm in C by [Kyle Loudon](https://everythingcomputerscience.com/books/Mastering-Algorithms-with-C-Loudon.pdf) |
 | [ccryp](./SW/ccryp/)   | Cryptography algorithm in C |
-| [hgreen](./SW/hgreen/) | Ecological modeling in Haskell |
+| [hmodel](./SW/hmodel/) | System modeling in Haskell |

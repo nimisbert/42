@@ -4,11 +4,6 @@
 
 cmake_minimum_required(VERSION 3.22.1)
 
-# ToDo :
-# Chapitre 5 main_cll a debug
-# Chapitre 8 chtbl example lexer
-# Chapitre 8 ohtbl
-
 project( algorithm_in_C )
 
 include_directories( include ${catkin_INCLUDE_DIRS} )

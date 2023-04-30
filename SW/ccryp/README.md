@@ -4,7 +4,7 @@ Exploration of the topic of cryptography in C.
 
 ## Notations 
 
-Based on Michel Dubois' [thesis](https://hal.science/tel-01799562v1).
+Notations are based on Michel Dubois' [thesis](https://hal.science/tel-01799562v1).
 
 - S = { P, C, K, E, D } a cryptography system
 - P = the Set of all cleartext
