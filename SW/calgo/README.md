@@ -1,4 +1,4 @@
-# calgo 
+# Data-structures and algorithms in C 
 
 Exploration of the topic of, usual computer science, data-structures and algorithms in C.
 
