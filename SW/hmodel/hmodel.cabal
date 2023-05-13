@@ -26,6 +26,11 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Math.Geometry
+      Math.StraightLine
+      Memo.OwnGeometry.Cube
+      Memo.OwnGeometry.Cuboid
+      Memo.OwnGeometry.Sphere
   other-modules:
       Paths_hmodel
   hs-source-dirs:
@@ -34,6 +39,7 @@ library
   build-depends:
       base >=4.7 && <5
     , gloss
+    , hspec
   default-language: Haskell2010
 
 executable hmodel-exe
@@ -47,6 +53,7 @@ executable hmodel-exe
       base >=4.7 && <5
     , gloss
     , hmodel
+    , hspec
   default-language: Haskell2010
 
 test-suite hmodel-test
@@ -61,4 +68,5 @@ test-suite hmodel-test
       base >=4.7 && <5
     , gloss
     , hmodel
+    , hspec
   default-language: Haskell2010
