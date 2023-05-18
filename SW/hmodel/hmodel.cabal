@@ -25,13 +25,7 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
-      Math.Geometry
-      Math.StraightLine
-      Memo.OwnGeometry.Cube
-      Memo.OwnGeometry.Cuboid
-      Memo.OwnGeometry.Sphere
-      Models.LotkaVolterra
+      ProjectEuler
   other-modules:
       Paths_hmodel
   hs-source-dirs:
@@ -45,12 +39,12 @@ library
     , hspec
   default-language: Haskell2010
 
-executable hmodel-exe
+executable pep1
   main-is: Main.hs
   other-modules:
       Paths_hmodel
   hs-source-dirs:
-      app
+      ProjectEuler/Problem1
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       Chart

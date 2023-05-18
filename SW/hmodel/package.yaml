@@ -41,16 +41,15 @@ library:
   source-dirs: src
 
 executables:
-  hmodel-exe:
-    main:                Main.hs
-    source-dirs:         app
+  pep1:
+    main:         Main.hs
+    source-dirs:  ProjectEuler/Problem1
     ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
     - hmodel
-
 tests:
   hmodel-test:
     main:                Spec.hs
@@ -61,3 +60,14 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - hmodel
+#  hmodel-test:
+#    main:                Spec.hs
+#    source-dirs:         test
+#    ghc-options:
+#    - -threaded
+#    - -rtsopts
+#    - -with-rtsopts=-N
+#    dependencies:
+#    - hmodel
+
+  
