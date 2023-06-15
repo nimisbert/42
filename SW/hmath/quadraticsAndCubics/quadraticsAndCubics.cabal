@@ -1,0 +1,27 @@
+cabal-version:      2.4
+name:               quadraticsAndCubics
+version:            0.1.0.0
+
+library
+      hs-source-dirs: 
+            lib
+      exposed-modules: 
+            Plot
+            Quadratics
+      other-modules:
+            Exe11
+      build-depends: 
+              base ^>=4.16.4.0
+            , gloss
+
+executable quadraticsAndCubics
+      hs-source-dirs:   
+            app
+      main-is:          
+            Main.hs
+      build-depends:    
+              base ^>=4.16.4.0
+            , quadraticsAndCubics
+            , gloss
+      default-language: 
+            Haskell2010
