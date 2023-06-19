@@ -6,7 +6,9 @@ library
     hs-source-dirs:
         lib
     exposed-modules:
-        SingleStateVariableModel
+        Model
+        Solver
+        Plot
     build-depends:
           base ^>=4.16.4.0
         , gloss
@@ -17,7 +19,19 @@ executable task41
     build-depends:    
           base ^>=4.16.4.0
         , gloss
+        , modellingFundamentals
     hs-source-dirs:   
         app
     default-language: 
+        Haskell2010
+executable task43
+    main-is:
+        task43.hs
+    build-depends:
+          base ^>=4.16.4.0
+        , gloss
+        , modellingFundamentals
+    hs-source-dirs:
+        app
+    default-language:
         Haskell2010
