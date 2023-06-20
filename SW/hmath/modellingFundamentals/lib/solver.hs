@@ -12,7 +12,7 @@ rk1 f yn (x:xs) = yn:rk1 f ynn xs
         ynn = yn + h*f x yn
 
 -- 4th Order Runge-Kutta
-rk4 :: Num a => (a -> a -> a) -> a -> [a] -> [a]
+rk4 :: Floating a => (a -> a -> a) -> a -> [a] -> [a]
 rk4 f yn [] = []
 rk4 f yn (x:xs) = yn:rk4 f ynn xs
     where 
