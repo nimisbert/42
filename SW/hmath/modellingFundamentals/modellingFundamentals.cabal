@@ -57,3 +57,14 @@ executable task46
         app
     default-language:
         Haskell2010
+executable task47
+    main-is:
+        task47.hs
+    build-depends:
+          base ^>=4.16.4.0
+        , gloss
+        , modellingFundamentals
+    hs-source-dirs:
+        app
+    default-language:
+        Haskell2010
