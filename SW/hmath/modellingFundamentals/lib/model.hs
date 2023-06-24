@@ -7,6 +7,8 @@ module Model (
     , logisticGrowth
 -- Schaffer Growth Model 
     , equilibriumYieldSchaefer
+    , equilibriumPopSchaefer
+    , equilibriumYieldSchaeferFromPop
 ) where 
 
 -- Single State Variable Models
@@ -34,3 +36,5 @@ equilibriumPopSchaefer r k f = k * (1 - f/r)
 -- Schaffer Population harvest yield at equilibrium (Y*)
 equilibriumYieldSchaefer :: Float -> Float -> Float -> Float 
 equilibriumYieldSchaefer r k f = f*k * (1 - f/r)
+equilibriumYieldSchaeferFromPop :: Float -> Float -> Float 
+equilibriumYieldSchaeferFromPop f n = f*n

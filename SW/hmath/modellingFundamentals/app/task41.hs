@@ -1,32 +1,20 @@
 module Main where
+import Graphics.Rendering.Chart.Easy
+import Graphics.Rendering.Chart.Backend.Cairo
 
-import Graphics.Gloss
-import Plot
-
-growthRecursive :: Float -> Float -> Float -> Float 
-growthRecursive n0 lambda t = (lambda**t)*n0
-
-myWindow :: Display 
-myWindow = InWindow "Plots" (800,600) (100,100)
-
-main :: IO ()
-main = display myWindow white . scale 20 20 . pictures $ [
-          color black $ Line [ (0,-20), (0,20) ]
-        , color black $ Line [ (-20,0), (20,0) ]
-        , color red        $ plotFunction growthModel0  [0.0, 0.5 .. 25.0 ]
-        , color blue       $ plotFunction growthModel05 [0.0, 0.5 .. 25.0 ]
-        , color green      $ plotFunction growthModel1  [0.0, 0.5 .. 25.0 ]
-        , color cyan       $ plotFunction growthModel15 [0.0, 0.5 .. 25.0 ]
-        , color magenta    $ plotFunction growthModel20 [0.0, 0.5 .. 25.0 ]
-    ]
-    where 
-        growthModel0  :: Float -> Float
-        growthModel0  t = growthRecursive 2 0.0 t
-        growthModel05 :: Float -> Float 
-        growthModel05 t = growthRecursive 2 0.5 t
-        growthModel1  :: Float -> Float 
-        growthModel1  t = growthRecursive 2 1.0 t
-        growthModel15 :: Float -> Float 
-        growthModel15 t = growthRecursive 2 1.5 t
-        growthModel20 :: Float -> Float 
-        growthModel20 t = growthRecursive 2 2.0 t
+main = toFile def "./plots/task41.png" $ do
+    layout_title .= "Exponential Growth"
+    setColors [ opaque blue, opaque red, opaque orange, opaque cyan, opaque magenta ]
+    plot (line "rate=0.0" [ growth00 [0,(0.5).. 5] ])
+    plot (line "rate=0.5" [ growth05 [0,(0.5).. 5] ])
+    plot (line "rate=1.0" [ growth10 [0,(0.5).. 5] ])
+    plot (line "rate=1.5" [ growth15 [0,(0.5).. 5] ])
+    plot (line "rate=2.0" [ growth20 [0,(0.5).. 5] ])
+    where
+        recursiveGrowth :: Float -> Float -> Float -> Float
+        recursiveGrowth l t n0 = (l**t)*n0
+        growth00 xs = [ (t, recursiveGrowth 0.0 t 20.0) | t <- xs ]
+        growth05 xs = [ (t, recursiveGrowth 0.5 t 20.0) | t <- xs ]
+        growth10 xs = [ (t, recursiveGrowth 1.0 t 20.0) | t <- xs ]
+        growth15 xs = [ (t, recursiveGrowth 1.5 t 20.0) | t <- xs ]
+        growth20 xs = [ (t, recursiveGrowth 2.0 t 20.0) | t <- xs ]
