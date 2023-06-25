@@ -1,20 +1,18 @@
 module Main where
+import Graphics.Rendering.Chart.Easy
+import Graphics.Rendering.Chart.Backend.Cairo
 
-import Graphics.Gloss
 import Model
 import Solver
-import Plot
-
-myWindow :: Display
-myWindow = InWindow "Plots" (800,600) (200,200)
 
 main :: IO()
-main = display myWindow white . scale 5 15 . pictures $ [
-          color black $ Line [ (0,-300), (0,300) ]
-        , color black $ Line [ (-300,0), (300,0) ]
-        , glossPlot [0.0,1.0 .. 100.0] (map (exponentialGrowth 20.0 (-0.1)) [0.0,1.0 .. 100.0]) red 
-        , glossPlot [0.0,1.0 .. 100.0] (rk1 (differencialGrowth (-0.1)) 20.0 [0.0,1.0 .. 100.0]) blue
-        , glossPlot [0.0,1.0 .. 100.0] (rk4 (differencialGrowth (-0.1)) 20.0 [0.0,1.0 .. 100.0]) green
---        , color blue  $ pictures $ map Line $ [zip [0.0,1.0 .. 100.0] (rk1 (differencialGrowth (-0.1)) 20.0 [0.0,1.0 .. 100.0])]
---        , color green $ pictures $ map Line $ [zip [0.0,1.0 .. 100.0] (rk4 (differencialGrowth (-0.1)) 20.0 [0.0,1.0 .. 100.0])]
-    ]
+main = toFile def "./plots/task44.png" $ do
+  layout_title .= "Exponential Growth"
+  setColors [ opaque blue, opaque red, opaque green ]
+  plot (line "Analytic"   [growthAnalytic [0.0,0.1 .. 50.0]])
+  plot (points "Runge Kutta 1" (growthRK1 [0.0,0.5 .. 50.0]))
+  plot (points "Runge Kutta 4" (growthRK4 [0.0,0.5 .. 50.0]))
+  where 
+    growthAnalytic ts = [ (t, exponentialGrowth 100.0 (-0.1) t) | t <-ts ]
+    growthRK1 ts = zip ts (rk1 (differencialGrowth (-0.1)) 100.0 ts)
+    growthRK4 ts = zip ts (rk4 (differencialGrowth (-0.1)) 100.0 ts)
