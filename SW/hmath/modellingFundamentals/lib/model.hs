@@ -38,3 +38,8 @@ equilibriumYieldSchaefer :: Float -> Float -> Float -> Float
 equilibriumYieldSchaefer r k f = f*k * (1 - f/r)
 equilibriumYieldSchaeferFromPop :: Float -> Float -> Float 
 equilibriumYieldSchaeferFromPop f n = f*n
+
+-- Ricker Model : 
+ricker :: Float -> Float -> Float -> Float
+ricker a b n = a * n * exp( -b * n )
+rickerRecursion :: (Float -> Float) -> Float -> [Float] -> [Float]
