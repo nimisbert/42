@@ -54,6 +54,9 @@ dkms.conf
 
 
 *.bin
+*.log
+*.raw
 *.svg
 **/plots
 **/build
+**/.DS_Store
