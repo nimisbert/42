@@ -1,0 +1,14 @@
+* Circuit :
+* Exemple avec AC
+Ve 1 0 AC=1
+R1 1 2 3.3k
+C1 2 0 10n
+.AC DEC 1000 100 100k ; 1000 points par decades de 100 a 100k
+.probe
+.end
+
+* +--R1--+---+
+* |      |   |
+* Ve     C1  Vs
+* |      |   |
+* +--gnd-+---+
