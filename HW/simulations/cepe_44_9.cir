@@ -1,0 +1,11 @@
+* Circuit :
+* Exo 6
+*Ve 1 0 AC=1
+Vp 1 0 pulse (-1 1 0 30u 30u 20u 100u)
+R0 1 2 500
+L0 2 S 200m
+C0 S 0 1.2665n
+*.ac DEC 1000 100 100k
+.tran 10n 400u 0 10n
+.probe
+.end

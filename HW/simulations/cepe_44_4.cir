@@ -1,0 +1,11 @@
+* Circuit :
+* Exo1 CEPE Tome 2-3 Article 44
+V1 0 1 1
+R1 1 2 3.3k
+V2 0 3 2
+R2 3 2 6.8k
+I1 0 4 1m
+R3 4 2 4.7k
+R4 0 2 2.2k
+.OP
+.end

@@ -1,0 +1,8 @@
+* Circuit :
+* Exemple avec TRAN
+Ve 1 0 pulse (0 3 100u 1n 1n 200u 400u)
+L1 1 2 1m
+R1 2 0 50
+.tran 10n 400u 0 10n
+.probe
+.end

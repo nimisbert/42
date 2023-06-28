@@ -1,0 +1,12 @@
+* Circuit :
+* Exo 5
+Ve1 1 0 DC=2
+R1  1 S 4.7k
+
+* SIN(<DC offset> <amplitude> <freq> <timedelay> <damping> <phase>)
+Ve2 2 0 SIN(0 1 30k 0 0 0)
+C1 2 S 2.2n
+R2 S 0 4.7k
+.tran 10n 400u 0 10n
+.probe
+.end

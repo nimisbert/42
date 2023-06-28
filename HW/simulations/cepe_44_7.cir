@@ -1,0 +1,10 @@
+* Circuit :
+* Exo 4
+Ve 1 0 pulse (0 3 100u 1n 1n 200u 300u)
+R1 1 2 3.3k
+R2 2 0 6.8k
+R3 2 s 4.7k
+C0 s 0 100u
+.tran 10n 400u 0 10n
+.probe
+.end

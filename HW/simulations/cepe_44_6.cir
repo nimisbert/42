@@ -1,0 +1,8 @@
+* Circuit :
+* Exo 3
+Ve 1 0 AC=1
+C1 1 2 2.2n
+R1 2 0 4.7k
+.AC DEC 1000 100 1000k
+.probe
+.end
