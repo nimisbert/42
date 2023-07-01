@@ -12,11 +12,12 @@ Exploration of the topic of electronic simulation with LTspice.
 
 | Directory  | Brief                    | Done | File                                          |
 |:----------:|:------------------------:|:----:|:---------------------------------------------:|
-| article-44 | Basic LTspice exemples   | no   | [cepe_44_1-6.cir](./article-44/cepe_44_1.cir) |
+| article-44 | Basic LTspice examples   | no   | [cepe_44_1-6.cir](./article-44/cepe_44_1.cir) |
+| aritcle-45 | RCRC circuit             | yes  | [RRCRC.cir](./article-45/RRCRC.cir)           |
+| article-46 | Colpitts Oscillator      | yes  | [colpitts.cir](./article-46/colpitts.cir)     | 
 | battery    | Battery electrical model | no   | [battery.asc](./battery/battery.asc)          |
 | pvpanel    | Photovoltaic panel model | no   | [pvmodel.asc](./pvpanel/pvmodel.asc)          |
 
 ## ToDo
 
-* Basic exmples q&as
 * Battery.cir

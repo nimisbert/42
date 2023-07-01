@@ -1,0 +1,39 @@
+* Circuit :
+* Colpitts Oscillator Ab function
+* ----A------+
+* |          |
+* |    --B---+
+* Vin  |
+* |    VE1 
+* |    |
+* +----+--gnd
+.include 2N2222.mod
+
+* A (Transistor Amplification)
+Vcc A 0 DC=15
+RB2 A B 150k
+RB1 B 0 22k
+Cde B 0 100n
+Q1 C B E 2N2222 ;
+RE E 0 1040
+RC A C 5.6k
+.op
+
+* b (RLC Feedback)
+CLout C S 100n
+C1 S E1 30p
+C2 E1 0 30p
+RinBC E1 0 23
+L1 S 0 220n
+
+* Test Ab
+Vin in 0 AC 1
+CLin in E 100n
+.ac dec 100 1 100G
+
+* Oscillation
+*.ic V(E) = 2V
+*.tran .1ns 10u 0n .1ns
+
+.probe
+.end

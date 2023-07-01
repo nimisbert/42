@@ -1,0 +1,21 @@
+* Circuit :
+* +--R1--+----+--R2--+----+
+* |      |    |      |    |
+* Ve     R3   C1     C2   Vs
+* |      |    |      |    |
+* +-gnd--+----+------+----+
+R1 1 2 2.7k
+R2 2 3 1.2k
+C1 2 0 220n
+C2 3 0 22n
+R3 2 0 2.2k
+
+* Input Voltage :
+Vin 1 0 ac 1 pulse (-5V 5V 500us 1us 1us 4ms 10ms)
+
+* Analysis :
+*.ac dec 10 10Hz 100kHz ; Harmonic Response
+.tran 1us 5ms          ; 5ms simluation with 1us resolution
+.probe
+
+.end

@@ -1,0 +1,12 @@
+* Circuit :
+* Colpitts Amplification Part
+* Transistor based (2N2222)
+.include 2N2222.mod
+Vcc A 0 DC=15
+RB2 A B 150k
+RB1 B 0 22k
+Cde B 0 100n
+Q1 C B E 2N2222 ;
+RE E 0 1040
+RC A C 5.6k
+.op
