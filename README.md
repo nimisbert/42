@@ -4,11 +4,12 @@ Answers to the questions of my universe and anything...
 
 ## HW
 
-The HW folder contains electronic Hardware schematics and routings, using Kicad.
+The HW folder contains electronic Hardware schematics and routings, using Kicad. Some simulations with LTspice as well.
 
 | folder                             | description                                                     |
 |:----------------------------------:|:---------------------------------------------------------------:|
 | [power_supply](./HW/power_supply/) | is a bad power supply from 230V AC to 10-15V DC, needs a rework |
+| [simulations](./HW/simulations/)   | electrical simulations with LTspice                             |
 
 ## SW 
 
