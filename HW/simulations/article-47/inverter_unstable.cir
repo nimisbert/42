@@ -1,0 +1,19 @@
+* Circuit :
+* LM308 based inverter
+.include LM308.mod
+
+Vplus 8 0 DC 12
+Vmoins 9 0 DC -12
+Vin 1 0 pulse (-0.2 +0.2 -.05u .1u .1u 19.9u 40u) AC 1
+
+X1 4 2 8 9 3 5 6 LM308
+Cc 5 6 0 .3p
+Rb 1 2 1k
+Ra 2 3 1k
+R1 4 0 470
+CL 3 0 120p ; Load
+RL 3 0 1Meg
+*.ac dec 100 .1 10Meg
+.tran .01u 50u 0u .01u
+.probe
+.end

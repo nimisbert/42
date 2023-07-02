@@ -1,0 +1,28 @@
+* Circuit :
+* LM308 based inverter with instability correction
+.include LM308.mod
+
+* Inputs
+Vp  8 0 dc 12
+Vm  9 0 dc -12
+Vin 1 0 pulse (-.2 .2 -.05u .1u .1u 19.9u 40u) ac 1
+
+* Inverter
+X1 4 2 8 9 3 5 6 LM308
+Cc 5 6 .3p
+Rb 1 20 1k
+Ra 20 3 1k
+CL 3 0 120p
+RL 3 0 1Meg
+
+* Phase Delay Correcter
+R2a 20 2 100k
+R1 2 7 22k
+C1 7 4 150n
+R2b 4 0 100k
+
+* Display
+*.ac dec 100 0.1 10Meg
+.tran .01u 50u 0y .01u
+.probe
+.end
