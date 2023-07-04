@@ -1,0 +1,47 @@
+* D Logic Gate :
+
+.model MODN nmos (Level=1 Kp=90u Vto=0.6 Cgdo=.3n Cgso=2.8n lambda=.02)
+.model MODP pmos (Level=1 Kp=25u Vto=-0.8 Cgdo=.3n Cgso=2.8n lambda=.04)
+
+.subckt INVCMOS in out Vdd
+    Mp out in Vdd Vdd MODP W=1.6u L=0.35u ; DGSB
+    Mn out in   0   0 MODN W=1u   L=0.35u ; DGSB
+.ends
+
+.subckt INTER en ep in out Vdd
+    Mp1 out ep in Vdd MODP W=1u L=0.35u ; DGSB
+    Mn1 out en in   0 MODN W=1u L=0.35u ; DGSB
+.ends
+
+.param D_r     = 100p ; D rise time
+.param CLK_r   = 100p ; CLK rise time
+.param D_f     = 100p ; D fall time
+.param CLK_f   = 100p ; CLK fall time
+.param D_p     = 8n   ; D period
+.param CLK_p   = 2.5n ; CLK period (400 MHz)
+.param D_twidh   = {0.5*D_p - D_r}
+.param CLK_twidh = {0.5*CLK_p - CLK_r} ; 50 % Duty Cycle
+
+Vclk  CLK  0 pulse (0 3.3 2n {CLK_r} {CLK_f} {CLK_twidh} {CLK_p})
+Vclkb CLKB 0 pulse (3.3 0 2.12n {CLK_r} {CLK_f} {CLK_twidh} {CLK_p})
+Vdd   vdd  0 DC 3.3
+* Circuit
+X1 D DB Vdd INVCMOS
+X2 CLKB CLK DB C Vdd INTER
+X3 C B Vdd INVCMOS
+X4 B Y Vdd INVCMOS
+X5 CLK CLKB B A Vdd INTER
+X6 CLKB CLK QI A Vdd INTER
+X7 A QNI Vdd INVCMOS
+X8 QNI QI Vdd INVCMOS
+X9 QNI Q Vdd INVCMOS
+X10 QI QN Vdd INVCMOS
+
+* Typical use case
+.param ret = 1n ;
+Vin D 0 pulse (0 3.3 {ret} {D_r} {D_f} {D_twidh} {D_p})
+.ic V(A)=0 V(QI)=0 V(Q)=0 ; A = QI = Q = 0
+.ic V(QNI)=3.3 V(QN)=3.3 ; QNI = QN = 1
+.tran 1ps 16ns 0ns 1ps UIC
+.probe
+.end
