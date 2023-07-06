@@ -1,0 +1,59 @@
+* Circuits with Diodes
+* Diode model
+.model ID D(Ron=1 Roff=1Meg Vfwd=0 Vrev=75)
+
+* --- Half-wave rectifier --- *
+* 1-D|-2
+*V1 1 0 SINE(0 3.3 50)
+*D1 1 2 ID
+*R1 2 0 1k
+*.tran 0.06
+
+* --- Full-wave rectifier --- *
+*   +-D|1-+1+-D|2-+
+* 3-+             +-4
+*   +-D|3-+2+-D|4-+
+*V2 1 2 SINE(0 10 50)
+*D1 0 1 ID
+*D2 1 4 ID
+*D3 0 2 ID
+*D4 2 4 ID
+* Vdc = sqrt(2) * Vac (rms)
+* Ripple Half-bridge = Iload / f*C
+* Ripple Full-bridge = Iload / 2*f*C
+*C2 4 0 .002 ; power filtering
+*R2 4 0 1k
+*.tran 0.10
+
+* --- Center Tapped Full-wave rectifier --- *
+* Primary
+*V3 1 0 SINE(0 10 50)
+*Rv 1 2 10 ; prevent over defined circuit
+*L1 2 0 10m
+* Secondary
+*L2 3 0 10u
+*L3 0 4 10u
+*D1 3 6 ID
+*D2 4 7 ID
+*R2 6 7 1k
+*K1 L1 L2 L3 1.0
+
+* --- Dual Polarity Split Supply --- *
+* Primary
+V3 1 0 SINE(0 10 50)
+Rv 1 2 1 ; prevent over defined circuit
+L1 2 0 1u
+* Secondary
+L2 4 0 1
+L3 0 6 1
+D1 3 4 ID
+D2 4 5 ID
+D3 3 6 ID
+D4 6 5 ID
+C1 3 0 1u
+C2 5 0 1u
+K1 L1 L2 L3 1.0
+
+.tran 0.10
+.probe
+.end
