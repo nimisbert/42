@@ -17,14 +17,18 @@ Exploration of the topic of electronic simulation with LTspice.
 * [P. Horowitz & W. Hill, The Art of Electronics (2015)](https://www.cambridge.org/us/universitypress/subjects/physics/electronics-physicists/art-electronics-3rd-edition?format=HB)
 ## Content 
 
-| Directory  | Brief                    | Done | File                                          |
-|:----------:|:------------------------:|:----:|:---------------------------------------------:|
-| article-44 | Basic LTspice examples   | no   | [cepe_44_1-6.cir](./article-44/cepe_44_1.cir) |
-| aritcle-45 | RCRC circuit             | yes  | [RRCRC.cir](./article-45/RRCRC.cir)           |
-| article-46 | Colpitts Oscillator      | yes  | [colpitts.cir](./article-46/colpitts.cir)     | 
-| battery    | Battery electrical model | no   | [battery.asc](./battery/battery.asc)          |
-| pvpanel    | Photovoltaic panel model | no   | [pvmodel.asc](./pvpanel/pvmodel.asc)          |
+| Directory  | Brief                    | Done | File                                                          |
+|:----------:|:------------------------:|:----:|:-------------------------------------------------------------:|
+| article-44 | Basic LTspice examples   | no   | [cepe_44_1-6.cir](./article-44/cepe_44_1.cir)                 |
+| aritcle-45 | RCRC circuit             | yes  | [RRCRC.cir](./article-45/RRCRC.cir)                           |
+| article-46 | Colpitts Oscillator      | yes  | [colpitts.cir](./article-46/colpitts.cir)                     | 
+| article-47 | Inverter with LM308      | yes  | [inverter_corrected.cir](./article-47/inverter_corrected.cir) |   
+| article-48 | Simple Op. Amp. Design   | no   ||
+| article-49 | D Logic Gate             | no   | [DFF.cir](./article-49/DFF.cir)                               |
+| chapter-1  | Electrical foundations   | no   ||
 
 ## ToDo
 
-* Battery.cir
+* article-44 q&a's
+* article-48
+* article-49 breaking time constraints cases
