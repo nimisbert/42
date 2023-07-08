@@ -40,20 +40,71 @@
 
 * --- Dual Polarity Split Supply --- *
 * Primary
-V3 1 0 SINE(0 10 50)
-Rv 1 2 1 ; prevent over defined circuit
-L1 2 0 1u
+*V3 1 0 SINE(0 10 50)
+*Rv 1 2 1 ; prevent over defined circuit
+*L1 2 0 1u
 * Secondary
-L2 4 0 1
-L3 0 6 1
-D1 3 4 ID
-D2 4 5 ID
-D3 3 6 ID
-D4 6 5 ID
-C1 3 0 1u
-C2 5 0 1u
-K1 L1 L2 L3 1.0
+*L2 4 0 1
+*L3 0 6 1
+*D1 3 4 ID
+*D2 4 5 ID
+*D3 3 6 ID
+*D4 6 5 ID
+*C1 3 0 1u
+*C2 5 0 1u
+*K1 L1 L2 L3 1.0
+*.tran 0.10
 
-.tran 0.10
+* --- Voltage Multipliers --- *
+* --- Cockcroft-Walton CW --- *
+* Primary
+*V3 1 0 SINE(0 10 50)
+*Rv 1 2 1 ; prevent over defined circuit
+*L1 2 0 1u
+* Secondary
+*L2 4 3 1
+*L3 3 0 1
+*K1 L1 L2 L3 1.0
+* CW First Stage
+*C1 4 5 1u
+*C2 6 0 1u
+*D1 0 5 ID
+*D2 5 6 ID
+* CW Second Stage (Voltage Doubler)
+*C3 5 7 1u
+*C4 6 8 1u
+*D3 6 7 ID
+*D4 7 8 ID
+* CW Third Stage (Voltage Tripler)
+*C5 7 9 1u
+*C6 8 10 1u
+*D5 8 9 ID
+*D6 9 10 ID
+* CW Fourth Stage (Voltage Quadrupler)
+*C7 9 11 1u
+*C8 10 12 1u
+*D7 10 11 ID
+*D8 11 12 ID
+*.tran 0.60
+
+* --- Signal Rectifier --- *
+*V1 1 0 pulse (0 3 100u 1n 1n 200u 400u)
+*C1 1 2 0.1u
+*R1 2 0 100
+*D1 2 3 ID
+*R2 3 0 100
+*.tran 1200u
+
+* --- Signal Rectifier with Voltage Drop Compensation --- *
+V1 1 0 pulse (0 0.5 100u 1n 1n 200u 400u)
+V2 4 0 DC=5
+C1 1 2 100p
+R1 2 3 1k
+D1 3 0 ID
+R2 3 4 1k
+D2 2 5 ID
+R3 5 0 1k
+.tran 1200u
+
 .probe
 .end

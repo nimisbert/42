@@ -1,0 +1,10 @@
+* Circuit :
+* CLRs
+V1 1 0 AC 1
+RS 1 2 1e3
+C0 2 0 463p
+L0 2 3 23.1u
+RL 3 0 50
+.ac dec 100 0.5Meg 3Meg
+.probe
+.end
