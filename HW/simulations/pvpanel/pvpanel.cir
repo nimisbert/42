@@ -1,0 +1,19 @@
+* Circuit :
+* 2      1 A
+* +--Rse--+---+
+* |       |   |
+* Rsh     D1  I1
+* |       |   |
+* +-------+---+
+* 0      0 K
+.include pvcell.cir
+
+X1 A 0 pvpanel Il={I}
+Rseries A 2 .5
+Rshunt  2 0 1Meg
+V1      2 0 2
+
+.dc V1 0 37 .002
+.step param I .2 .6 .2
+.probe
+.end
