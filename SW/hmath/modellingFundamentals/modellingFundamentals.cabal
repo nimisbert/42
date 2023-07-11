@@ -13,79 +13,13 @@ library
           base ^>=4.16.4.0
         , gloss
 
-executable task41
+executable testPlots
     main-is: 
-        task41.hs
+        testPlots.hs
     build-depends:    
           base ^>=4.16.4.0
-        , Chart 
-        , Chart-cairo
-        , Chart-diagrams
-        , modellingFundamentals
+        , gloss
     hs-source-dirs:   
         app
     default-language: 
-        Haskell2010
-executable task43
-    main-is:
-        task43.hs
-    build-depends:
-          base ^>=4.16.4.0
-        , Chart 
-        , Chart-cairo
-        , Chart-diagrams
-        , modellingFundamentals
-    hs-source-dirs:
-        app
-    default-language:
-        Haskell2010
-executable task44
-    main-is:
-        task44.hs
-    build-depends:
-          base ^>=4.16.4.0
-        , Chart 
-        , Chart-cairo
-        , Chart-diagrams
-        , modellingFundamentals
-    hs-source-dirs:
-        app
-    default-language:
-        Haskell2010
-executable task46
-    main-is:
-        task46.hs
-    build-depends:
-          base ^>=4.16.4.0
-        , Chart 
-        , Chart-cairo
-        , Chart-diagrams
-        , modellingFundamentals
-    hs-source-dirs:
-        app
-    default-language:
-        Haskell2010
-executable task47
-    main-is:
-        task47.hs
-    build-depends:
-          base ^>=4.16.4.0
-        , Chart 
-        , Chart-cairo
-        , Chart-diagrams
-        , modellingFundamentals
-    hs-source-dirs:
-        app
-    default-language:
-        Haskell2010
-executable task51
-    main-is:
-        task51.hs
-    build-depends:
-          base ^>=4.16.4.0
-        , Chart ^>=1.9.4
-        , modellingFundamentals
-    hs-source-dirs:
-        app
-    default-language:
         Haskell2010

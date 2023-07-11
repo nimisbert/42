@@ -71,8 +71,3 @@ add_dependencies(main_chtbl calgo)
 add_executable(main_bitree examples/main_bitree.c)
 target_link_libraries( main_bitree calgo)
 add_dependencies( main_bitree calgo)
-
-#Autres Codes :
-add_executable( main_ladder examples/main_ladder.c)
-target_link_libraries( main_ladder calgo)
-add_dependencies( main_ladder calgo)
