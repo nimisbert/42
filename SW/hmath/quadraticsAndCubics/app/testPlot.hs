@@ -1,25 +1,18 @@
 module Main where
 
 import Graphics.Gloss
+import Linear.V2
 import Plot 
 
-window :: Display
-window = InWindow "Plots" (800,600) (20,20)
-
 main :: IO ()
-main = display window white .scale 20 20 . pictures $ [
-          color black $ Line [ (0, -20), (0, 20) ]
-        , color black $ Line [ (-20, 0), (20, 0) ]
-        , color red   $ plotFunction f [ -20.0, -19.9 .. 20.0 ]
-        , color blue  $ plotFunction g [ -20.0, -19.9 .. 20.0 ]
-        , color green $ plotFunction h [ -20.0, -19.9 .. 20.0 ]
-    ]
+main = do
+    let window = InWindow "Proto" (800, 600) (0, 0) 
+        bgcolor = black
+        fps = 30
+        model = Model 10 10 [red, blue, green] $ [[(t, f t) | t <- [-20.0,-19.0 .. 20.0]]] ++ [[(t, g t) | t <- [-20.0,-19.0 .. 20.0]]]
+    play window bgcolor fps model handleDisplay handleEvent handleTime
     where
-        f :: Float -> Float
-        f x = x^2
-
+        f :: Float -> Float 
+        f x = x**3.0
         g :: Float -> Float 
-        g x = -x^2
-
-        h :: Float -> Float 
-        h x = sin( x )
+        g x = x**2.0

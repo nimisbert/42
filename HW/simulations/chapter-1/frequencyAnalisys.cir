@@ -1,0 +1,21 @@
+* Circuit Figure 1.88
+*V1 io 0 SINE(0 3.3 10)
+*C1 io 0 1u
+*Rload io 0 1k
+*.tran 0.20
+
+* Circuit Figure 1.90
+* Low-pass filter
+Vlp inl 0 AC=1
+R1 inl outl 10k
+C1 outl 0 1u
+* High-pass filter
+Vhp inh 0 AC=1
+C2 inh outh 1u
+R2 outh 0 10k
+.AC dec 10 1e-6 1e6
+
+
+.probe
+.end
+* 500
