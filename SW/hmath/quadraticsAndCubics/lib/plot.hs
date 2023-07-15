@@ -1,8 +1,5 @@
 module Plot (
-      Model(..)
-    , handleDisplay
-    , handleEvent
-    , handleTime
+	Model(..), handleDisplay, handleEvent, handleTime
 ) where 
 
 import Graphics.Gloss
@@ -23,15 +20,15 @@ handleDisplay (Model sx sy plotColors dataPoints) =
     ++ [color white $ Line [(-sx*0.01,0), (sx*0.01,0)]]
     ++ [color white $ Line [(0,-sy*0.01), (0,sy*0.01)]]
     where 
-      bottomLeft  = ((-sx/2)*0.9, (-sy/2)*0.9)
-      bottomRight = ((-sx/2)*0.9, ( sy/2)*0.9)
-      topRight    = (( sx/2)*0.9, ( sy/2)*0.9)
-      topLeft     = (( sx/2)*0.9, (-sy/2)*0.9)
+    	bottomLeft  = ((-sx/2)*0.9, (-sy/2)*0.9)
+    	bottomRight = ((-sx/2)*0.9, ( sy/2)*0.9)
+    	topRight    = (( sx/2)*0.9, ( sy/2)*0.9)
+    	topLeft     = (( sx/2)*0.9, (-sy/2)*0.9)
 
 handleEvent :: Event -> Model -> Model 
 handleEvent (EventResize (x, y)) (Model _ _ plotColors dataPoints) = Model { 
-          _sx = fromIntegral x
-        , _sy = fromIntegral y
+      	  _sx = fromIntegral x
+    	, _sy = fromIntegral y
         , _plotColors = plotColors
         , _data = dataPoints
     }
